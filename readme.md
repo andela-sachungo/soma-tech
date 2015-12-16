@@ -1,6 +1,8 @@
 # soma-tech
+![CircleCI Badge](https://circleci.com/gh/andela-sachungo/php-checkpoints.svg?style=shield&circle-token=eab6015ece8c084d689495dcbbf2bd5bd22c50cb)
 
 Soma-tech is a learning management system that helps people learn various technologies.
+
 **NOTE:** It is highly recommended that you use [Homestead virtual machine](http://laravel.com/docs/5.1/homestead).
 
 ##Installation instructions
@@ -11,6 +13,7 @@ Soma-tech is a learning management system that helps people learn various techno
 
 ##Defining the site in Homestead
 [Laravel](http://laravel.com/docs/5.1/homestead#connecting-via-ssh) explains how to configure **Homestead**.
+
 In summary:
 
  1. Identify which folder(s) you want to share with Homestead as
