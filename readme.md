@@ -1,5 +1,5 @@
 # soma-tech
-![CircleCI Badge](https://circleci.com/gh/andela-sachungo/php-checkpoints.svg?style=shield&circle-token=eab6015ece8c084d689495dcbbf2bd5bd22c50cb)
+![CircleCI Badge](https://circleci.com/gh/andela-sachungo/soma-tech.svg?style=shield&circle-token=eab6015ece8c084d689495dcbbf2bd5bd22c50cb)
 
 Soma-tech is a learning management system that helps people learn various technologies.
 
