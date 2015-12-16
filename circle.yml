@@ -13,7 +13,5 @@ dependencies:
     - sudo apt-get install php5-xdebug
     - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
 test:
-  override:
-    - phpunit -c phpunit.xml.dist
   post:
     - php vendor/bin/coveralls
