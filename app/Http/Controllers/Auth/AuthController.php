@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Soma\Http\Controllers\Auth;
 
-use App\User;
+use Soma\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use Soma\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -23,6 +23,7 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
+    protected $redirectPath = '/dashboard';
     /**
      * Create a new authentication controller instance.
      *
@@ -42,9 +43,10 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'name' => 'required|max:255|alpha_dash',
+            'email' => 'required|email|max:255|max:255',
+            'password' => 'required|min:6',
+            'confirm-password' => 'required|same:password',
         ]);
     }
 

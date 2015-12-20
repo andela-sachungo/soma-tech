@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: App
-        psr4_prefix: App
+        namespace: Soma
+        psr4_prefix: Soma
         src_path: app
