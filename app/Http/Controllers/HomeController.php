@@ -3,7 +3,6 @@
 namespace Soma\Http\Controllers;
 
 use Auth;
-use Soma\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -22,6 +21,7 @@ class HomeController extends Controller
         if (auth()->user()) {
             return view('dashboard.index');
         }
+
         return view('auth.login');
     }
 

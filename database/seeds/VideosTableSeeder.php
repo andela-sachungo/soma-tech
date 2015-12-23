@@ -15,7 +15,7 @@ class VideosTableSeeder extends Seeder
     {
         $categories = Categories::with('user')->get();
 
-        if (!$categories) {
+        if (! $categories) {
             $categories = factory(Soma\Categories::class, 3)->create();
         }
 

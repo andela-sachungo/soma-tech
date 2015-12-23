@@ -2,8 +2,6 @@
 
 namespace Soma\Http\Requests;
 
-use Soma\Http\Requests\Request;
-
 class CategoriesRequest extends Request
 {
     /**
@@ -24,7 +22,7 @@ class CategoriesRequest extends Request
     public function rules()
     {
         return [
-            'title'=>'required',
+            'title' => 'required',
         ];
     }
 }

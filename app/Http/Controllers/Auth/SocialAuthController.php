@@ -5,9 +5,6 @@ namespace Soma\Http\Controllers\Auth;
 use Auth;
 use Socialite;
 use Soma\User;
-use Illuminate\Http\Request;
-
-use Soma\Http\Requests;
 use Soma\Http\Controllers\Controller;
 
 class SocialAuthController extends Controller
@@ -45,7 +42,7 @@ class SocialAuthController extends Controller
     }
 
     /**
-     * Return user if exists; create and return if doesn't
+     * Return user if exists; create and return if doesn't.
      *
      * @param $socialUser
      * @return User

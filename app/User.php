@@ -35,7 +35,7 @@ class User extends Model implements
         'email',
         'password',
         'provider_id',
-        'avatar'
+        'avatar',
     ];
 
     /**
@@ -50,7 +50,6 @@ class User extends Model implements
      *
      * @return Illuminate\Database\Eloquent\Relations\HasMany
      */
-
     public function categories()
     {
         return $this->hasMany('Soma\Categories');

@@ -17,8 +17,7 @@ class CategoryController extends Controller
         $this->middleware('auth', [
             'except' => [
                 'index',
-                'show',
-                ]
+                ],
             ]);
     }
 
@@ -30,6 +29,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Categories::all();
+
         return view('categories.index')->with('categories', $categories);
     }
 
@@ -53,7 +53,7 @@ class CategoryController extends Controller
     {
         $user = User::authorizedUser($request->email)->first();
         $user->categories()->create([
-            'title' => $request->title
+            'title' => $request->title,
         ]);
 
         // FLASH MESSAGE
@@ -72,7 +72,7 @@ class CategoryController extends Controller
     {
         $category = Categories::find($id);
         $category->update([
-            'title' => $request->title
+            'title' => $request->title,
             ]);
 
         // FLASH MESSAGE
@@ -90,6 +90,7 @@ class CategoryController extends Controller
         $category = Categories::find($id);
         if ($category) {
             Categories::destroy($id);
+
             return redirect()->route('dashboard');
         }
 

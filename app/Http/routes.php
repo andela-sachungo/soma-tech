@@ -37,7 +37,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 // Social authentication routes
 Route::get('auth/{provider}', [
     'uses' => 'Auth\SocialAuthController@redirectToProvider',
-    'as' => 'social.auth'
+    'as' => 'social.auth',
 ]);
 
 Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
@@ -73,7 +73,7 @@ Route::resource(
     'profile',
     'ProfileController',
     [
-    'only' => ['edit', 'update']
+    'only' => ['edit', 'update'],
     ]
 );
 

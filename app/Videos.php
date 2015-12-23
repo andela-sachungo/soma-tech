@@ -35,5 +35,4 @@ class Videos extends Model
     {
         return $this->belongsTo('Soma\Categories');
     }
-
 }

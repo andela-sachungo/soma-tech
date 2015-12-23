@@ -5,7 +5,6 @@ namespace Soma\Http\Controllers;
 use Soma\Videos;
 use Soma\Categories;
 use Soma\Http\Requests\VideoRequest;
-use Soma\Http\Controllers\Controller;
 
 class VideoController extends Controller
 {
@@ -21,7 +20,7 @@ class VideoController extends Controller
             'except' => [
                 'index',
                 'show',
-                ]
+                ],
             ]);
         $this->getCategories = Categories::all();
         $this->user = auth()->user();
@@ -35,6 +34,7 @@ class VideoController extends Controller
     public function index()
     {
         $videos = Videos::with('category')->get();
+
         return view('welcome')->with('videos', $videos);
     }
 
@@ -46,6 +46,7 @@ class VideoController extends Controller
     public function create()
     {
         $categories = $this->getCategories;
+
         return view('videos.create')->with('categories', $categories);
     }
 
@@ -81,7 +82,7 @@ class VideoController extends Controller
      */
     public function show($id)
     {
-        $video= Videos::find($id);
+        $video = Videos::find($id);
         return view('videos.show')->with('video', $video);
     }
 
@@ -94,7 +95,7 @@ class VideoController extends Controller
     public function edit($id)
     {
         $categories = $this->getCategories;
-        $video= Videos::find($id);
+        $video = Videos::find($id);
 
         return view('videos.edit', compact('video', 'categories'));
     }
@@ -159,9 +160,9 @@ class VideoController extends Controller
      */
     private function youtubeEmbedLink($youtubeLink)
     {
-        $search     = "/^(?:https?:\/\/)?(www\.youtube\.com\/)(?:embed\/|watch\?v=)([\w-]{9,12})(?:.*)$/";
-        $replace    = 'https://www.youtube.com/embed/$2';
-        $url        = preg_replace($search, $replace, $youtubeLink);
+        $search = "/^(?:https?:\/\/)?(www\.youtube\.com\/)(?:embed\/|watch\?v=)([\w-]{9,12})(?:.*)$/";
+        $replace = 'https://www.youtube.com/embed/$2';
+        $url = preg_replace($search, $replace, $youtubeLink);
 
         return $url;
     }

@@ -3,10 +3,8 @@
 namespace Soma\Http\Controllers;
 
 use Soma\User;
-use Soma\Http\Requests;
 use Illuminate\Http\Request;
 use Soma\Http\Requests\ProfileRequest;
-use Soma\Http\Controllers\Controller;
 
 class ProfileController extends Controller
 {

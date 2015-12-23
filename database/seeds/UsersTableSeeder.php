@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Jane Doe',
                 'email' => 'doe@example.com',
                 'provider_id' => str_random(32),
-                'avatar'=> "public/image/person_avatar.png",
+                'avatar'=> 'public/image/person_avatar.png',
             ]);
     }
 }

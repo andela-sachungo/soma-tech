@@ -38,7 +38,6 @@ class Categories extends Model
      *
      * @return Illuminate\Database\Eloquent\Relations\HasMany
      */
-
     public function videos()
     {
         return $this->hasMany('Soma\Videos', 'category_id');

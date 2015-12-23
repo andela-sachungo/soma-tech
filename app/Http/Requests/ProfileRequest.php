@@ -2,8 +2,6 @@
 
 namespace Soma\Http\Requests;
 
-use Soma\Http\Requests\Request;
-
 class ProfileRequest extends Request
 {
     /**
