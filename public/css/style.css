@@ -40,18 +40,6 @@
     opacity: .7;
 }
 
-html, body {
-    height: 100%;
-}
-
-body{
-    padding-bottom: 100px;    /* height of footer */
-}
-
-footer{
-    height: 100px;
-    width:100%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
+.sidebar-color {
+    background: #FAF0E6;
 }

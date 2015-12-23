@@ -4,6 +4,8 @@
 
 @section('content')
     <div class="row">
+         @include('partials.sidebar')
+
         <div class="col-sm-6">
             <h3>Add a Video</h3>
             <form method="POST" action="{{ route('video.store') }}">

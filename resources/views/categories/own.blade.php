@@ -43,9 +43,12 @@
                                     <i class="fa fa-edit"></i>
                                 </a>
                                 @include('partials.category_edit_modal')
-                                <a href="{{ route('category.destroy', $category->id) }}" class="btn btn-sm btn-primary btn-shape">
-                                    <i class="fa fa-trash"></i>
-                                </a>
+
+                                <!-- Form to send a HTTP DELETE request -->
+                                {!! Form::open(array('route' => array('category.destroy', $category->id), 'method' => 'delete')) !!}
+                                    <button type="submit" class = "btn btn-sm btn-primary btn-shape"><i class="fa fa-trash"></i></button>
+                                {!! Form::close() !!}
+
                             @endcan
                         @endforeach
                     @endforeach
@@ -68,6 +71,7 @@
                 $("#show-category").modal('show');
             });
             $(".btn-modal").click(function(){
+                //$("#pinside").text($(this).text());
                 $("#edit-category").modal('show');
             });
             $(".btn-add").click(function(){

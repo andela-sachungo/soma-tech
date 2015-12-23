@@ -1,4 +1,4 @@
-<div class="col-sm-2">
+<div class="col-sm-2" class="sidebar-color">
     <ul id="sidebar" class="nav nav-stacked affix">
         <li><a href=" {{ route('dashboard') }}">
             <span class ="glyphicon glyphicon-th"></span>
