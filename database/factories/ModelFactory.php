@@ -19,3 +19,20 @@ $factory->define(Soma\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(Soma\Categories::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => factory('Soma\User')->create()->id,
+        'title' => $faker->sentence,
+    ];
+});
+
+$factory->define(Soma\Videos::class, function (Faker\Generator $faker) {
+    return [
+        'category_id' => factory('Soma\Categories')->create()->id,
+        'user_id' => factory('Soma\User')->create()->id,
+        'youtube_link' => $faker->url,
+        'title' => $faker->sentence,
+        'description' => $faker->paragraph,
+    ];
+});

@@ -15,7 +15,7 @@
                 </div>
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                     <label for="email" class="control-label">Email</label>
-                    <input class="form-control" name = "email" id="email" type="text" value="{{ old('email') }}">
+                    <input class="form-control" name = "email" id="email" type="email" value="{{ old('email') }}">
                 </div>
                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                     <label for="password" class="control-label">Password</label>

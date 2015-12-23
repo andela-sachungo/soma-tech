@@ -15,22 +15,18 @@
 </head>
 <body>
     @include('partials.navbar')
-￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼
-    <div class="container">
-        @yield('content')
-    </div>
-
-    <footer class="page-footer deep-orange darken-4">
+￼￼￼￼<div class="wrapper">
         <div class="container">
-            <div class="footer-copyright">
-                Copyright &copy; 2015 soma-tech.app | All rights reserved.
-            </div>
+            @yield('content')
         </div>
-    </footer>
+    </div>
+    <div class="footer">
+        Copyright &copy; 2015 soma-tech.app | All rights reserved.
+    </div>￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼
 
     <!--Import jquery.min.js and bootstrap.min.js-->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     @yield('scripts')
 </body>
 </html>

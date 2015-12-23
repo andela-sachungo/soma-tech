@@ -44,4 +44,26 @@ class User extends Model implements
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    /**
+     * A user has many categories.
+     *
+     * @return Illuminate\Database\Eloquent\Relations\HasMany
+     */
+
+    public function categories()
+    {
+        return $this->hasMany('Soma\Categories');
+    }
+
+    /**
+     * Scope a query to only include a particular user.
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeAuthorizedUser($query, $email)
+    {
+        return $query->where('email', $email);
+    }
+
 }
