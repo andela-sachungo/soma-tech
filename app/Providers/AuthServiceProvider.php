@@ -2,6 +2,10 @@
 
 namespace Soma\Providers;
 
+use Soma\Videos;
+use Soma\Categories;
+use Soma\Policies\VideoAuthorizePolicy;
+use Soma\Policies\CategoryAuthorizePolicy;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -14,6 +18,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'Soma\Model' => 'Soma\Policies\ModelPolicy',
+        Categories::class => CategoryAuthorizePolicy::class,
+        Videos::class => VideoAuthorizePolicy::class,
     ];
 
     /**

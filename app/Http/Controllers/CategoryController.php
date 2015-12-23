@@ -58,31 +58,7 @@ class CategoryController extends Controller
 
         // FLASH MESSAGE
 
-        return redirect()->route('dashboard');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $category = Categories::find($id);
-        return view('categories.show')->with('category', $category);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $category = Categories::find($id);
-        return view('categories.edit')->with('category', $category);
+        return redirect()->back();
     }
 
     /**
@@ -119,6 +95,19 @@ class CategoryController extends Controller
 
         // REDIRECT WITH MESSAGE CATEGORY NOT FOUND
         return redirect()->route('dashboard');
+    }
 
+    /**
+     * Get the categories of a particular user.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getCategories()
+    {
+        $users = User::with(['categories' => function ($query) {
+            $query->where('user_id', auth()->user()->id);
+        }])->get();
+
+        return view('categories.own')->with('users', $users);
     }
 }

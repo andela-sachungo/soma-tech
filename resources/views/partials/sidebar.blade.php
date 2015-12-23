@@ -1,4 +1,4 @@
-<div class="col-sm-3">
+<div class="col-sm-2">
     <ul id="sidebar" class="nav nav-stacked affix">
         <li><a href=" {{ route('dashboard') }}">
             <span class ="glyphicon glyphicon-th"></span>
@@ -8,17 +8,17 @@
             <span class="glyphicon glyphicon-pencil"></span>
             Edit Profile
         </a></li>
-        <li><a href="#">
+        <li><a href="{{ route('own.videos') }}">
             <span class="glyphicon glyphicon-facetime-video"></span>
             My videos</a>
         </li>
-        <li><a href="#">
+        <li><a href="{{ route('video.create') }}">
+            <span class="glyphicon glyphicon-plus-sign"></span>
+            Add videos</a>
+        </li>
+        <li><a href="{{ route('own.categories') }}">
         <span class="glyphicon glyphicon-list"></span>
             Created categories
-        </a></li>
-        <li><a href="#">
-            <span class="glyphicon glyphicon-pencil"></span>
-            Edit video
         </a></li>
     </ul>
 </div>

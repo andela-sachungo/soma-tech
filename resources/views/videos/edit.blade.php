@@ -4,8 +4,11 @@
 
 @section('content')
     <div class="row">
-        <div class="col-sm-6">
+        @include('partials.sidebar')
+
+        <div class="col-sm-10">
             <h3>Edit Video</h3>
+            <hr>
 
             {!! Form::model($video,['method' => 'PATCH', 'route' => ['video.update', $video->id]]) !!}
                 @include('partials.error')

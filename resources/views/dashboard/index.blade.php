@@ -19,7 +19,7 @@
     <div class="row">
         @include('partials.sidebar')
 
-        <div class="col-sm-9">
+        <div class="col-sm-10">
             <div class="row">
                 <div class="col-sm-12">
                     <h4>{{ auth()->user()->name}}</h4>

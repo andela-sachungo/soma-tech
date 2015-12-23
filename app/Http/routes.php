@@ -50,10 +50,23 @@ Route::get('dashboard', [
 ]);
 
 // Video route
+Route::get('video/myvideos', [
+    'uses' =>'VideoController@getVideos',
+    'as' => 'own.videos',
+]);
+
 Route::resource('video', 'VideoController');
 
 //Category route
-Route::resource('category', 'CategoryController');
+Route::get('category/mycategories', [
+    'uses' =>'CategoryController@getCategories',
+    'as' => 'own.categories',
+]);
+Route::resource(
+    'category',
+    'CategoryController',
+    ['except' => ['show', 'edit']]
+);
 
 // Profile route
 Route::resource(

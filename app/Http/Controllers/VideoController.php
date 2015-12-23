@@ -35,7 +35,7 @@ class VideoController extends Controller
     public function index()
     {
         $videos = Videos::with('category')->get();
-        return view('videos.index')->with('videos', $videos);
+        return view('welcome')->with('videos', $videos);
     }
 
     /**
@@ -137,6 +137,18 @@ class VideoController extends Controller
         // REDIRECT WITH MESSAGE VIDEO NOT FOUND
         return redirect()->route('dashboard');
 
+    }
+
+    /**
+     * Get the videos of a particular user.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getVideos()
+    {
+        $id = auth()->user()->id;
+        $videos = Videos::where('user_id', $id)->simplePaginate(6);
+        return view('videos.index')->with('videos', $videos);
     }
 
     /**

@@ -18,7 +18,7 @@
 @section('content')
     <div class="row">
         @include('partials.sidebar')
-        <div class="col-sm-9">
+        <div class="col-sm-10">
             <div class="row">
                 <div class="col-sm-12">
                     <h3>Edit Profile</h3>
@@ -31,7 +31,7 @@
                         <img src="{{ $user->avatar }}"
                              class="avatar img-circle img-thumbnail img-responsive"
                              alt="avatar">
-                        <h5>Upload a different photo...</h5>
+                        <h4>Upload a different photo...</h4>
                         <form action="{{ route('change.avatar', $user->id) }}"
                               method="POST"
                               class="dropzone"
