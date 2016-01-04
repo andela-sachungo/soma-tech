@@ -15,14 +15,18 @@
 </head>
 <body>
     @include('partials.navbar')
-￼￼￼￼<div class="wrapper">
-        <div class="container">
-            @yield('content')
-        </div>
+
+    @yield('sidebar')
+
+    <div class="container sticky-footer">
+        @yield('content')
     </div>
-    <div class="footer">
-        Copyright &copy; 2015 soma-tech.app | All rights reserved.
-    </div>￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼
+
+    <footer>
+        <div class="container">
+            Copyright &copy; 2015 soma-tech.app | All rights reserved.
+        </div>
+    </footer>
 
     <!--Import jquery.min.js and bootstrap.min.js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>

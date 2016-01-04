@@ -62,6 +62,18 @@ class CategoryController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    /*public function edit($id)
+    {
+        $category = Categories::find($id);
+        return view('categories.edit')->with('category', $category);
+    }*/
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -91,7 +103,7 @@ class CategoryController extends Controller
         if ($category) {
             Categories::destroy($id);
 
-            return redirect()->route('dashboard');
+            return redirect()->back();
         }
 
         // REDIRECT WITH MESSAGE CATEGORY NOT FOUND

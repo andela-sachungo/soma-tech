@@ -17,7 +17,7 @@
 
 @section('content')
     <div class="row">
-        @include('partials.sidebar')
+         @include('partials.sidebar')
 
         <div class="col-sm-10">
             <div class="row">

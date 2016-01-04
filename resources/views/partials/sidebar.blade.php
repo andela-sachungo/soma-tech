@@ -1,5 +1,5 @@
-<div class="col-sm-2" class="sidebar-color">
-    <ul id="sidebar" class="nav nav-stacked affix">
+<div class="col-sm-2">
+    <ul class="nav nav-stacked affix">
         <li><a href=" {{ route('dashboard') }}">
             <span class ="glyphicon glyphicon-th"></span>
             Dashboard
@@ -18,7 +18,7 @@
         </li>
         <li><a href="{{ route('own.categories') }}">
         <span class="glyphicon glyphicon-list"></span>
-            Created categories
+            Categories
         </a></li>
     </ul>
 </div>

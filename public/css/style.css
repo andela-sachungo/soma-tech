@@ -40,6 +40,20 @@
     opacity: .7;
 }
 
-.sidebar-color {
-    background: #FAF0E6;
+.navbar-color {
+    background: #9ad3de;
+}
+
+body,html{
+    height:100%;
+}
+
+.sticky-footer {
+    min-height:100%;
+}
+
+footer{
+    height:100px;
+    margin-top:-100px;
+    background: #9ad3de;
 }
