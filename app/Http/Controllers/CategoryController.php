@@ -17,6 +17,7 @@ class CategoryController extends Controller
         $this->middleware('auth', [
             'except' => [
                 'index',
+                'getVideosByCategory',
                 ],
             ]);
     }

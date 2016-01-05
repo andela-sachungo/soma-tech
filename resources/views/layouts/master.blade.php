@@ -17,9 +17,10 @@
     @include('partials.navbar')
 
     @yield('sidebar')
-
-    <div class="container sticky-footer">
-        @yield('content')
+    <div class="sticky-footer">
+        <div class="container">
+            @yield('content')
+        </div>
     </div>
 
     <footer>

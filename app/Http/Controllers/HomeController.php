@@ -45,15 +45,4 @@ class HomeController extends Controller
         //dd(Auth::user());
         return view('dashboard.index');
     }
-
-    /**
-     * Return the welcome view.
-     *
-     * @return view
-     */
-    public function homepage()
-    {
-        // flash('Welcome', 'To the new way to dine');
-        return view('welcome');
-    }
 }

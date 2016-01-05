@@ -4,26 +4,6 @@
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="/css/video.css">
-    <style type="text/css">
-        .align-videos {
-            margin: 5px;
-            min-height: 450px;
-        }
-
-        .exceed {
-            overflow: auto;
-        }
-
-        .btn-shape {
-            border-radius: 30px;
-            margin-right: 10px;
-        }
-
-        .btn-bottom {
-            position: absolute;
-            bottom: 5px;
-        }
-    </style>
 @endsection
 
 @section('content')

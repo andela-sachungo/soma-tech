@@ -10,7 +10,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/', 'HomeController@homepage');
 
 // Authentication routes...
 Route::get('auth/login', [
@@ -55,7 +54,11 @@ Route::get('video/myvideos', [
     'as' => 'own.videos',
 ]);
 
-Route::resource('video', 'VideoController');
+Route::resource(
+    'video',
+    'VideoController',
+    ['except' => ['index']]
+);
 
 //Category route
 Route::get('category/mycategories', [
@@ -81,4 +84,13 @@ Route::resource(
 Route::post('profile/{id}/photo', [
     'uses' => 'ProfileController@changeAvatar',
     'as' => 'change.avatar',
+]);
+
+// homepage route
+Route::get('/', 'VideoController@getAll');
+
+// Get videos by category
+Route::get('categories/{id}/videos', [
+    'uses' => 'VideoController@getVideosByCategory',
+    'as'=>'category.videos',
 ]);
