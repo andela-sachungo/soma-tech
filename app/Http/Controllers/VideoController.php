@@ -160,9 +160,10 @@ class VideoController extends Controller
      */
     public function getVideosByCategory($id)
     {
+        $categories = $this->getCategories;
         $videos = Videos::where('category_id', $id)->paginate(6);
 
-        return view('categories.video')->with('videos', $videos);
+        return view('categories.video', compact('videos', 'categories'));
     }
 
     /**
