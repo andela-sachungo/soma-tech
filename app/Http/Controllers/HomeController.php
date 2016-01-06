@@ -13,11 +13,6 @@ class HomeController extends Controller
      */
     public function login()
     {
-        // If the user is logged in when they access the login page,
-        // they are logged out.
-        /*if (auth()->user()) {
-            Auth::logout();
-        }*/
         if (auth()->user()) {
             return view('dashboard.index');
         }
@@ -42,7 +37,6 @@ class HomeController extends Controller
      */
     public function dashboard()
     {
-        //dd(Auth::user());
         return view('dashboard.index');
     }
 }
