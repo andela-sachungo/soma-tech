@@ -85,6 +85,7 @@ class VideoController extends Controller
     {
         $video = Videos::find($id);
         $category = Categories::find($video->category_id);
+
         return view('videos.show', compact('video', 'category'));
     }
 
@@ -134,12 +135,12 @@ class VideoController extends Controller
         $video = Videos::find($id);
         if ($video) {
             Videos::destroy($id);
+
             return redirect()->route('dashboard');
         }
 
         // REDIRECT WITH MESSAGE VIDEO NOT FOUND
         return redirect()->route('dashboard');
-
     }
 
     /**
@@ -151,6 +152,7 @@ class VideoController extends Controller
     {
         $id = auth()->user()->id;
         $videos = Videos::where('user_id', $id)->simplePaginate(6);
+
         return view('videos.index')->with('videos', $videos);
     }
 

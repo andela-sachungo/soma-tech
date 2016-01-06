@@ -56,7 +56,7 @@ Route::get('dashboard', [
 
 // Video route
 Route::get('video/myvideos', [
-    'uses' =>'VideoController@getVideos',
+    'uses' => 'VideoController@getVideos',
     'as' => 'own.videos',
 ]);
 
@@ -64,7 +64,7 @@ Route::resource('video', 'VideoController');
 
 //Category route
 Route::get('category/mycategories', [
-    'uses' =>'CategoryController@getCategories',
+    'uses' => 'CategoryController@getCategories',
     'as' => 'own.categories',
 ]);
 Route::resource(
@@ -91,5 +91,5 @@ Route::post('profile/{id}/photo', [
 // Get videos by category
 Route::get('categories/{id}/videos', [
     'uses' => 'VideoController@getVideosByCategory',
-    'as'=>'category.videos',
+    'as' => 'category.videos',
 ]);

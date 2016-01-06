@@ -5,7 +5,6 @@ namespace Soma\Http\Controllers;
 use Soma\User;
 use Soma\Categories;
 use Soma\Http\Requests\CategoriesRequest;
-use Soma\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
@@ -71,6 +70,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Categories::find($id);
+
         return view('categories.edit')->with('category', $category);
     }
 

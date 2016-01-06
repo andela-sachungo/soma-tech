@@ -64,5 +64,4 @@ class User extends Model implements
     {
         return $query->where('email', $email);
     }
-
 }
