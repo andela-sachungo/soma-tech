@@ -68,11 +68,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    /*public function edit($id)
+    public function edit($id)
     {
         $category = Categories::find($id);
         return view('categories.edit')->with('category', $category);
-    }*/
+    }
 
     /**
      * Update the specified resource in storage.

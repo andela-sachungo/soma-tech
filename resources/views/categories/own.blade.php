@@ -45,10 +45,9 @@
                                    </td>
                                    @can('userCategory', $category)
                                     <td class="text-nowrap">
-                                        <a href="#" class="btn btn-sm btn-primary btn-shape btn-modal">
+                                        <a href="{{ route('category.edit', $category->id) }}" class="btn btn-sm btn-primary btn-shape">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        @include('partials.category_edit_modal')
 
                                         <!-- Form to send a HTTP DELETE request -->
                                         {!! Form::open(array('route' => array('category.destroy', $category->id), 'method' => 'delete')) !!}
@@ -78,10 +77,6 @@
             $(".category-list").click(function(){
                 $("#pinside").text($(this).text());
                 $("#show-category").modal('show');
-            });
-            $(".btn-modal").click(function(){
-                //$("#pinside").text($(this).text());
-                $("#edit-category").modal('show');
             });
             $(".btn-add").click(function(){
                 $("#add-category").modal('show');
