@@ -18,7 +18,7 @@ class VideoController extends Controller
     {
         $this->middleware('auth', [
             'except' => [
-                'getAll',
+                'index',
                 'show',
                 ],
             ]);
@@ -31,7 +31,7 @@ class VideoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getAll()
+    public function index()
     {
         $videos = Videos::paginate(6);
         $categories = $this->getCategories;
@@ -84,7 +84,8 @@ class VideoController extends Controller
     public function show($id)
     {
         $video = Videos::find($id);
-        return view('videos.show')->with('video', $video);
+        $category = Categories::find($video->category_id);
+        return view('videos.show', compact('video', 'category'));
     }
 
     /**

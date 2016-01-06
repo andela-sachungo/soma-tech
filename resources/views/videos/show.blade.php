@@ -4,18 +4,54 @@
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="/css/video.css">
+    <style>
+        .vid-thumbnail {
+            position: relative;
+        }
+
+        #button-caption {
+            position: absolute;
+            bottom: 10px;
+        }
+    </style>
 @endsection
 
 @section('content')
     <div class="row">
-        <div class="col-sm-6 vid">
-            <!-- 16:9 aspect ratio -->
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="{{ $video->youtube_link }}"></iframe>
-            </div>
-            <h3>{{ $video->title }}</h3>
-            <h6>{{ substr($video->created_at, 0, 10) }}</h6>
-            <p> {{ $video->description }}</p>
-        </div>
-    </div>
+        <div class="container">
+            <div class="col-sm-offset-2 col-sm-8">
+                <h4 id="video-title">{{ $video->title }}</h4>
+                <hr>
+                <div class="thumbnail box-shadow" id="single-video">
+                    <!-- 16:9 aspect ratio -->
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <iframe class="embed-responsive-item" src="{{ $video->youtube_link }}" allowfullscreen></iframe>
+                    </div> <!-- .embed-responsive -->
+                    <div class="caption vid-thumbnail" id="align">
+                        <p id="description"> {{ $video->description }}</p>
+                        <br>
+                        <label><h5>Category:</h5></label><span style ="padding:5px;color: #aa863a">{{ $category->title }}</span>
+                        @can('userVideo', $video)
+                            <div class="row" id="button-caption">
+                                <div class="col-sm-2">
+                                    <a href="{{ route('homepage') }}" class="btn btn-md btn-default">Homepage</a>
+                                </div>
+                                <div class="col-sm-1" style="margin-left:50px; margin-right:15px">
+                                    <a href="{{ route('video.edit', $video->id) }}" class="btn btn-md btn-info btn-shape">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                </div>
+                                <div class="col-sm-1" style="margin-right:15px">
+                                    <!-- Form to send a HTTP DELETE request -->
+                                    {!! Form::open(array('route' => array('video.destroy', $video->id), 'method' => 'delete')) !!}
+                                        <button type="submit" class = "btn btn-md btn-default btn-shape"><i class="fa fa-trash"></i></button>
+                                    {!! Form::close() !!}
+                                </div>
+                            </div>
+                        @endcan
+                    </div> <!-- .caption -->
+                </div> <!-- .thumbnail -->
+            </div> <!-- .col-sm-offset-2 -->
+        </div> <!-- .container -->
+    </div> <!-- .row -->
 @endsection

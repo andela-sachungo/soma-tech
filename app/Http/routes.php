@@ -11,6 +11,12 @@
 |
 */
 
+// homepage route
+Route::get('/', [
+    'uses' => 'VideoController@index',
+    'as' => 'homepage',
+]);
+
 // Authentication routes...
 Route::get('auth/login', [
     'uses' => 'HomeController@login',
@@ -54,11 +60,7 @@ Route::get('video/myvideos', [
     'as' => 'own.videos',
 ]);
 
-Route::resource(
-    'video',
-    'VideoController',
-    ['except' => ['index']]
-);
+Route::resource('video', 'VideoController');
 
 //Category route
 Route::get('category/mycategories', [
@@ -85,9 +87,6 @@ Route::post('profile/{id}/photo', [
     'uses' => 'ProfileController@changeAvatar',
     'as' => 'change.avatar',
 ]);
-
-// homepage route
-Route::get('/', 'VideoController@getAll');
 
 // Get videos by category
 Route::get('categories/{id}/videos', [
