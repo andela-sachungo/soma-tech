@@ -12,6 +12,11 @@
             font-style:oblique;
             font-size: 1.5em;
         }
+
+        .photo-size {
+            width: 200px;
+            height: 200px;
+        }
     </style>
 @endsection
 
@@ -27,7 +32,11 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-4 text-center">
-                        <img src="{{ auth()->user()->avatar }}" class="img-circle avatar img-thumbnail img-responsive">
+                        @if(auth()->user()->avatar)
+                            <img src="{{ auth()->user()->avatar }}" class="img-circle avatar img-thumbnail img-responsive">
+                        @else
+                            <img src="/image/person_avatar.png" class="img-circle avatar img-thumbnail img-responsive photo-size">
+                        @endif
                     </div>
                     <div class="col-sm-8">
                         <div class="row">
