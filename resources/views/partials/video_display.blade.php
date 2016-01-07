@@ -12,14 +12,14 @@
             @can('userVideo', $video)
                 <div class="row">
                     <div class="col-sm-2">
-                        <a href="{{ route('video.edit', $video->id) }}" class="btn btn-md btn-info btn-shape">
+                        <a href="{{ route('video.edit', $video->id) }}" class="btn btn-md btn-info btn-shape" id="edit-video">
                             <i class="fa fa-edit"></i>
                         </a>
                     </div>
                     <div class="col-sm-2">
                         <!-- Form to send a HTTP DELETE request -->
                         {!! Form::open(array('route' => array('video.destroy', $video->id), 'method' => 'delete')) !!}
-                            <button type="submit" class = "btn btn-md btn-default btn-shape"><i class="fa fa-trash"></i></button>
+                            <button type="submit" class = "btn btn-md btn-default btn-shape" name="delete-video"><i class="fa fa-trash"></i></button>
                         {!! Form::close() !!}
                     </div>
                 </div>

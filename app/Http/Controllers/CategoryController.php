@@ -15,7 +15,6 @@ class CategoryController extends Controller
     {
         $this->middleware('auth', [
             'except' => [
-                'index',
                 'getVideosByCategory',
                 ],
             ]);
@@ -26,12 +25,12 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    /*public function index()
     {
         $categories = Categories::all();
 
         return view('categories.index')->with('categories', $categories);
-    }
+    }*/
 
     /**
      * Show the form for creating a new resource.
@@ -89,7 +88,7 @@ class CategoryController extends Controller
             ]);
 
         // FLASH MESSAGE
-        return redirect()->route('dashboard');
+        return redirect()->route('own.categories');
     }
 
     /**

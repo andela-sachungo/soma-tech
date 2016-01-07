@@ -58,7 +58,7 @@ class HomepageTest extends TestCase
     }
 
     /**
-     * Test $videos are paginated.
+     * Test videos are paginated.
      *
      * @return void
      */

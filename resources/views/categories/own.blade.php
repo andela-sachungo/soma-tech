@@ -45,13 +45,13 @@
                                    </td>
                                    @can('userCategory', $category)
                                     <td class="text-nowrap">
-                                        <a href="{{ route('category.edit', $category->id) }}" class="btn btn-sm btn-primary btn-shape">
+                                        <a href="{{ route('category.edit', $category->id) }}" class="btn btn-sm btn-primary btn-shape" id="edit-btn">
                                             <i class="fa fa-edit"></i>
                                         </a>
 
                                         <!-- Form to send a HTTP DELETE request -->
                                         {!! Form::open(array('route' => array('category.destroy', $category->id), 'method' => 'delete')) !!}
-                                            <button type="submit" class = "btn btn-sm btn-primary btn-shape"><i class="fa fa-trash"></i></button>
+                                            <button type="submit" class = "btn btn-sm btn-primary btn-shape" name="delete-btn"><i class="fa fa-trash"></i></button>
                                         {!! Form::close() !!}
                                     </td>
                                    @endcan

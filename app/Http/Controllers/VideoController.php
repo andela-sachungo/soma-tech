@@ -121,7 +121,7 @@ class VideoController extends Controller
             ]);
 
         // FLASH MESSAGE
-        return redirect()->route('dashboard');
+        return redirect()->route('own.videos');
     }
 
     /**
@@ -151,7 +151,7 @@ class VideoController extends Controller
     public function getVideos()
     {
         $id = auth()->user()->id;
-        $videos = Videos::where('user_id', $id)->simplePaginate(6);
+        $videos = Videos::where('user_id', $id)->paginate(6);
 
         return view('videos.index')->with('videos', $videos);
     }
@@ -170,7 +170,7 @@ class VideoController extends Controller
     }
 
     /**
-     * Write the URL to allow the video to be embeded on page.
+     * Write the URL to allow the video to be embedded on page.
      *
      * @param  string  $youtubeLink
      * @return \Illuminate\Http\Response

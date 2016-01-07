@@ -25,3 +25,8 @@ In summary:
  4. Run the `vagrant up` command from your Homestead directory.
 
 **NOTE:** When your Homestead environment is provisioned and running, to add an additional Nginx site ; add it on `Homestead.yaml` file and then run `vagrant provision`.
+
+## Testing
+* Create a database called `testing`.
+* If you are not using `mysql`, then change the `DB_CONNECTION` value in `phpunit.xml` accordingly.
+* Run `phpunit` in *vagrant*.

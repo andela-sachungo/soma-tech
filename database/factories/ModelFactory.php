@@ -13,7 +13,7 @@
 
 $factory->define(Soma\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'name' => $faker->word,
         'email' => $faker->email,
         'password' => bcrypt('somasoma'),
         'remember_token' => str_random(10),
