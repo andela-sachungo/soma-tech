@@ -76,14 +76,11 @@ class VideosTest extends TestCase
             ]);
 
         $this->actingAs($user)
-             ->visit('video/myvideos')
-             ->click('edit-video')
-             ->seePageIs("video/{$video->id}/edit")
+             ->visit("video/{$video->id}/edit")
              ->see('MERCY SAID NO!')
              ->type('Gospel - Mercy Said No!', 'title')
              ->type('Mercy Said No song as sang by Judy Jacobs', 'description')
-             ->press('Save')
-             ->seePageIs('video/myvideos');
+             ->press('Save');
 
         $this->seeInDatabase(
             'videos',
@@ -104,17 +101,18 @@ class VideosTest extends TestCase
         $user = factory(Soma\User::class)->create();
         $category = factory(Soma\Categories::class)->create();
 
-        factory(Soma\Videos::class)->create([
-                 'category_id' => $category->id,
-                 'user_id' => $user->id,
-                 'youtube_link' => 'https://www.youtube.com/embed/z3wwWFsSlNQ&list=RDH1XrbuOoKFw&index=27',
-                 'title' => 'Still - Hillsong United with Lyrics!',
-                 'description' => "Appreciating God's love for us as Jesus died on the cross to save our souls",
+        $video = factory(Soma\Videos::class)->create([
+                'category_id' => $category->id,
+                'user_id' => $user->id,
+                'youtube_link' => 'https://www.youtube.com/embed/z3wwWFsSlNQ&list=RDH1XrbuOoKFw&index=27',
+                'title' => 'Still - Hillsong United with Lyrics!',
+                'description' => "Appreciating God's love for us as Jesus died on the cross to save our souls",
             ]);
 
-        $this->actingAs($user)
-             ->visit('video/myvideos')
-             ->press('delete-video');
+        $this->withoutMiddleware();
+        $response = $this->call('DELETE', "/video/$video->id");
+        $this->assertEquals(302, $response->getStatusCode());
+
 
         $this->notSeeInDatabase(
             'videos',
@@ -124,6 +122,7 @@ class VideosTest extends TestCase
             ]
         );
     }
+
 
     /**
      * Test a video can be viewed on its own page.

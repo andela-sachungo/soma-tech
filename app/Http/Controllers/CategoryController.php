@@ -2,6 +2,7 @@
 
 namespace Soma\Http\Controllers;
 
+use Gate;
 use Soma\User;
 use Soma\Categories;
 use Soma\Http\Requests\CategoriesRequest;
@@ -117,10 +118,8 @@ class CategoryController extends Controller
      */
     public function getCategories()
     {
-        $users = User::with(['categories' => function ($query) {
-            $query->where('user_id', auth()->user()->id);
-        }])->get();
+        $categories = Categories::where('user_id', auth()->user()->id)->get();
 
-        return view('categories.own')->with('users', $users);
+        return view('categories.own')->with('categories', $categories);
     }
 }

@@ -130,39 +130,30 @@ class DashboardTest extends TestCase
         $this->seeInDatabase('categories', ['title' => 'Exalted']);
 
         $this->actingAs($user)
-             ->visit('category/mycategories')
-             ->click('edit-btn')
-             ->seePageIs("category/{$category->id}/edit")
+             ->visit("category/{$category->id}/edit")
              ->see('Exalted')
              ->type('God is Exalted ', 'title')
              ->press('Save')
              ->seePageIs('category/mycategories')
              ->see('God is Exalted');
-
-        $this->seeInDatabase('categories', ['title' => 'God is Exalted']);
     }
 
     /**
      * Test the user can delete their own categories.
      *
-     * 'delete-btn' is the name of the delete button.
-     *
      * @return void
      */
     public function testCategoriesDeleted()
     {
-        $user = factory(Soma\User::class)->create();
-
-        factory(Soma\Categories::class)->create([
-            'user_id' => $user->id,
+        $category = factory(Soma\Categories::class)->create([
             'title' => 'Praise',
         ]);
 
         $this->seeInDatabase('categories', ['title' => 'Praise']);
 
-        $this->actingAs($user)
-             ->visit('category/mycategories')
-             ->press('delete-btn');
+        $this->withoutMiddleware();
+        $response = $this->call('DELETE', "/category/$category->id");
+        $this->assertEquals(302, $response->getStatusCode());
 
         $this->notSeeInDatabase('categories', ['title' => 'Praise']);
     }

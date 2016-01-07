@@ -6,6 +6,8 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class HomeControllerTest extends TestCase
 {
+    use DatabaseMigrations;
+
     /**
      * Test the auth/login route is accessible.
      *
