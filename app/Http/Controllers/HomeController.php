@@ -14,7 +14,9 @@ class HomeController extends Controller
     public function login()
     {
         if (auth()->user()) {
-            return view('dashboard.index');
+            flash('Logged In', 'You are already logged in');
+
+            return redirect()->route('dashboard');
         }
 
         return view('auth.login');

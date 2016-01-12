@@ -72,6 +72,7 @@
 @endsection
 
 @section('scripts')
+    @include('partials.flash')
     <script type="text/javascript">
         $(document).ready(function(){
             $(".category-list").click(function(){

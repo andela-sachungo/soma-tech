@@ -42,4 +42,19 @@ class AuthenticationTest extends TestCase
              ->press('Log In')
              ->seePageIs('/dashboard');
     }
+
+    /**
+     * Test user redirected to dashboard if already logged in.
+     *
+     * @return void
+     */
+    public function testRedirectWhenLoggedIn()
+    {
+        $user = factory(Soma\User::class)->create();
+
+        $this->actingAs($user)
+             ->visit('auth/login')
+             ->seePageIs('/dashboard')
+             ->see('Logged In');
+    }
 }

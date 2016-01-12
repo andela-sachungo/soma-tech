@@ -62,8 +62,10 @@ class DashboardTest extends TestCase
              ->visit("profile/{$user->id}/edit")
              ->type('Zulia Dexa', 'name')
              ->type('zuliadexa@example.com', 'email')
+             ->withSession(['flash_message' => 'Profile Updated'])
              ->press('Update')
-             ->seePageIs('/dashboard');
+             ->seePageIs('/dashboard')
+             ->see('Profile Updated');
 
         $this->seeInDatabase('users', ['email' => 'zuliadexa@example.com']);
     }
@@ -107,7 +109,8 @@ class DashboardTest extends TestCase
              ->press('Add')
              ->type('Testing', 'title')
              ->press('Add')
-             ->seePageIs('category/mycategories');
+             ->seePageIs('category/mycategories')
+             ->see('Category Added');
 
         $this->seeInDatabase('categories', ['title' => 'Testing']);
     }
@@ -135,6 +138,7 @@ class DashboardTest extends TestCase
              ->type('God is Exalted ', 'title')
              ->press('Save')
              ->seePageIs('category/mycategories')
+             ->see('Update successful!')
              ->see('God is Exalted');
     }
 

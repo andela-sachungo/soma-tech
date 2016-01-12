@@ -24,7 +24,9 @@ class VideosTest extends TestCase
              ->type('I will worship you', 'title')
              ->type('Gospel worship video', 'description')
              ->select($category->id, 'category_id')
-             ->press('Add');
+             ->press('Add')
+             ->seePageIs('/video/myvideos')
+             ->see('Success!');
 
         $this->seeInDatabase('videos', ['title' => 'I will worship you']);
     }
@@ -80,7 +82,9 @@ class VideosTest extends TestCase
              ->see('MERCY SAID NO!')
              ->type('Gospel - Mercy Said No!', 'title')
              ->type('Mercy Said No song as sang by Judy Jacobs', 'description')
-             ->press('Save');
+             ->press('Save')
+             ->seePageIs('/video/myvideos')
+             ->see('Video Updated');
 
         $this->seeInDatabase(
             'videos',

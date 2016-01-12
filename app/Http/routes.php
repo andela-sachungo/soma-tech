@@ -69,7 +69,7 @@ Route::get('category/mycategories', [
 Route::resource(
     'category',
     'CategoryController',
-    ['except' => ['show', 'index']]
+    ['except' => ['show', 'index', 'create']]
 );
 
 // Profile route
