@@ -2,7 +2,6 @@
 
 namespace Soma\Http\Controllers;
 
-use Gate;
 use Soma\User;
 use Soma\Categories;
 use Soma\Http\Requests\CategoriesRequest;
