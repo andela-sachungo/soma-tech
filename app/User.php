@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Soma;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -10,9 +10,10 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class User extends Model implements AuthenticatableContract,
-                                    AuthorizableContract,
-                                    CanResetPasswordContract
+class User extends Model implements
+    AuthenticatableContract,
+    AuthorizableContract,
+    CanResetPasswordContract
 {
     use Authenticatable, Authorizable, CanResetPassword;
 
@@ -28,7 +29,14 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = [
+        'name',
+        'username',
+        'email',
+        'password',
+        'provider_id',
+        'avatar',
+    ];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -36,4 +44,24 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    /**
+     * A user has many categories.
+     *
+     * @return Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function categories()
+    {
+        return $this->hasMany('Soma\Categories');
+    }
+
+    /**
+     * Scope a query to only include a particular user.
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeAuthorizedUser($query, $email)
+    {
+        return $query->where('email', $email);
+    }
 }

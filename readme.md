@@ -1,27 +1,32 @@
-## Laravel PHP Framework
+# soma-tech
+![CircleCI Badge](https://circleci.com/gh/andela-sachungo/soma-tech.svg?style=shield&circle-token=eab6015ece8c084d689495dcbbf2bd5bd22c50cb)
+[![Coverage Status](https://coveralls.io/repos/andela-sachungo/soma-tech/badge.svg?branch=master&service=github)](https://coveralls.io/github/andela-sachungo/soma-tech?branch=master)
+![StyleCI Badge](https://styleci.io/repos/48097337/shield)
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Soma-tech is a learning management system that helps people learn various technologies.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+**NOTE:** It is highly recommended that you use [Homestead virtual machine](http://laravel.com/docs/5.1/homestead).
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+##Installation instructions
+* Clone the repository `git clone <repository>`
+*  Run `composer install`
+* Rename `.env.example`  to `.env`
+* Run `php artisan key:generate` to generate the *application key*
 
-## Official Documentation
+##Defining the site in Homestead
+[Laravel](http://laravel.com/docs/5.1/homestead#connecting-via-ssh) explains how to configure **Homestead**.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+In summary:
 
-## Contributing
+ 1. Identify which folder(s) you want to share with Homestead as
+    explained in [Configuring Shared Folders](http://laravel.com/docs/5.1/homestead#configuring-homestead).
+ 2. Map a domain to a folder on your Homestead environment as explained in [Configuring Nginx Sites](http://laravel.com/docs/5.1/homestead#configuring-homestead).
+ 3. Then add the domain to your Nginx site to the `hosts` file on your machine, as explained in [The Hosts File](http://laravel.com/docs/5.1/homestead#configuring-homestead).
+ 4. Run the `vagrant up` command from your Homestead directory.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+**NOTE:** When your Homestead environment is provisioned and running, to add an additional Nginx site ; add it on `Homestead.yaml` file and then run `vagrant provision`.
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+## Testing
+* Create a database called `testing`.
+* If you are not using `mysql`, then change the `DB_CONNECTION` value in `phpunit.xml` accordingly.
+* Run `phpunit` in *vagrant*.

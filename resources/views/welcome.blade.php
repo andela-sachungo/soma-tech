@@ -1,45 +1,36 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layouts.master')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('title', 'Welcome')
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="/css/video.css">
+    <style>
+        body {
+            background: #e8edf3;
+        }
+    </style>
+@endsection
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+@section('content')
+    <div class="row">
+        @if (isset($videos, $categories))
+            <div class="col-sm-3">
+                @include('partials.category_list')
+            </div> <!-- .col-sm-3 -->
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
+            <div class="col-sm-9">
+                @foreach ($videos as $video)
+                    @include('partials.video_display')
+                @endforeach
+                {!! $videos->render() !!}
+            </div> <!-- .col-sm-9 -->
+        @else
+            <div class="col-sm-offset-4">
+                <h1>Welcome, to soma-tech!</h1>
+                <p> A place to <strong><em>learn via YouTube videos</em></strong>.</p>
+                <p><em>Sorry</em>, currently there are no videos uploaded.</p>
+                <h3>Upload a video to start the learning movement.<em>Thank you</em>.</h3>
             </div>
-        </div>
-    </body>
-</html>
+        @endif
+    </div> <!-- .row -->
+@endsection
