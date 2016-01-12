@@ -44,7 +44,8 @@ class ProfileController extends Controller
                 'email' => $request->email,
             ]);
 
-        // FLASH MESSAGE
+        flash()->success('Profile Updated', 'You have updated your profile!');
+
         return redirect()->route('dashboard');
     }
 

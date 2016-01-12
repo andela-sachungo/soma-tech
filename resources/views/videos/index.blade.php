@@ -18,3 +18,7 @@
         </div> <!-- .col-sm-10 -->
     </div> <!--end .row -->
 @endsection
+
+@section('scripts')
+    @include('partials.flash')
+@endsection

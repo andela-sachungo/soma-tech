@@ -70,9 +70,9 @@ class VideoController extends Controller
             'description' => $request->description,
             ]);
 
-        // FLASH MESSAGE
+        flash()->success('Success!', 'You have uploaded a video');
 
-        return redirect()->route('dashboard');
+        return redirect()->route('own.videos');
     }
 
     /**
@@ -120,7 +120,8 @@ class VideoController extends Controller
             'description' => $request->description,
             ]);
 
-        // FLASH MESSAGE
+        flash()->success('Video Updated', 'You have updated a video!');
+
         return redirect()->route('own.videos');
     }
 
@@ -135,11 +136,13 @@ class VideoController extends Controller
         $video = Videos::find($id);
         if ($video) {
             Videos::destroy($id);
+            flash()->success('Deleted', 'The video has been deleted!');
 
-            return redirect()->route('dashboard');
+            return redirect()->route('own.videos');
         }
 
-        // REDIRECT WITH MESSAGE VIDEO NOT FOUND
+        flash()->error('Not Found', 'The video do not exist!');
+
         return redirect()->route('dashboard');
     }
 

@@ -38,6 +38,8 @@ class SocialAuthController extends Controller
         $authUser = $this->findOrCreateUser($user);
         Auth::login($authUser, true);
 
+        flash('Welcome', 'Thank you for logging in and/or signing up!');
+
         return redirect()->route('dashboard');
     }
 

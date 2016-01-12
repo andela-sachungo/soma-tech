@@ -53,3 +53,7 @@
         </div> <!-- .col-sm-9-->
     </div> <!-- .row-->
 @endsection
+
+@section('scripts')
+    @include('partials.flash')
+@endsection
