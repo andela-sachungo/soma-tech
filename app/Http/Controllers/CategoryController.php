@@ -13,33 +13,7 @@ class CategoryController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', [
-            'except' => [
-                'getVideosByCategory',
-                ],
-            ]);
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    /*public function index()
-    {
-        $categories = Categories::all();
-
-        return view('categories.index')->with('categories', $categories);
-    }*/
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('categories.create');
+        $this->middleware('auth');
     }
 
     /**
@@ -55,7 +29,7 @@ class CategoryController extends Controller
             'title' => $request->title,
         ]);
 
-        // FLASH MESSAGE
+        flash()->success('Category Added', 'You have created a new category!');
 
         return redirect()->back();
     }
@@ -87,7 +61,8 @@ class CategoryController extends Controller
             'title' => $request->title,
             ]);
 
-        // FLASH MESSAGE
+        flash()->success('Update successful!', 'The category has been updated.');
+
         return redirect()->route('own.categories');
     }
 
@@ -103,11 +78,14 @@ class CategoryController extends Controller
         if ($category) {
             Categories::destroy($id);
 
+            flash()->success('Deleted', 'The category has been deleted!');
+
             return redirect()->back();
         }
 
-        // REDIRECT WITH MESSAGE CATEGORY NOT FOUND
-        return redirect()->route('dashboard');
+        flash()->error('Not Found', 'The category do not exist!');
+
+        return redirect()->route('own.categories');
     }
 
     /**
