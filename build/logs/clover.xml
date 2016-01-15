@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1452627258">
-  <project timestamp="1452627258">
+<coverage generated="1452839789">
+  <project timestamp="1452839789">
     <package name="Soma">
       <file name="/home/homestead/soma-tech/app/Categories.php">
         <class name="Categories" namespace="Soma">
@@ -85,7 +85,7 @@
       </file>
       <file name="/home/homestead/soma-tech/app/Http/Controllers/HomeController.php">
         <class name="HomeController" namespace="Soma\Http\Controllers">
-          <metrics methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="9" coveredelements="9"/>
+          <metrics methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="11" coveredelements="11"/>
         </class>
         <line num="14" type="method" name="login" crap="2" count="3"/>
         <line num="16" type="stmt" count="3"/>
@@ -96,7 +96,9 @@
         <line num="32" type="stmt" count="2"/>
         <line num="40" type="method" name="dashboard" crap="1" count="6"/>
         <line num="42" type="stmt" count="6"/>
-        <metrics loc="44" ncloc="29" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="9" coveredelements="9"/>
+        <line num="50" type="method" name="about" crap="1" count="1"/>
+        <line num="52" type="stmt" count="1"/>
+        <metrics loc="54" ncloc="34" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="11" coveredelements="11"/>
       </file>
       <file name="/home/homestead/soma-tech/app/Http/Controllers/ProfileController.php">
         <class name="ProfileController" namespace="Soma\Http\Controllers">
@@ -208,17 +210,17 @@
         <class name="Flash" namespace="Soma\Http">
           <metrics methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="8" elements="13" coveredelements="11"/>
         </class>
-        <line num="15" type="method" name="createFlash" crap="1" count="8"/>
-        <line num="18" type="stmt" count="8"/>
-        <line num="19" type="stmt" count="8"/>
-        <line num="20" type="stmt" count="8"/>
-        <line num="21" type="stmt" count="8"/>
-        <line num="22" type="stmt" count="8"/>
-        <line num="23" type="stmt" count="8"/>
+        <line num="15" type="method" name="createFlash" crap="1" count="9"/>
+        <line num="18" type="stmt" count="9"/>
+        <line num="19" type="stmt" count="9"/>
+        <line num="20" type="stmt" count="9"/>
+        <line num="21" type="stmt" count="9"/>
+        <line num="22" type="stmt" count="9"/>
+        <line num="23" type="stmt" count="9"/>
         <line num="32" type="method" name="info" crap="1" count="1"/>
         <line num="34" type="stmt" count="1"/>
-        <line num="44" type="method" name="success" crap="1" count="7"/>
-        <line num="46" type="stmt" count="7"/>
+        <line num="44" type="method" name="success" crap="1" count="8"/>
+        <line num="46" type="stmt" count="8"/>
         <line num="56" type="method" name="error" crap="2" count="0"/>
         <line num="58" type="stmt" count="0"/>
         <metrics loc="60" ncloc="29" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="8" elements="13" coveredelements="11"/>
@@ -275,62 +277,66 @@
       </file>
     </package>
     <file name="/home/homestead/soma-tech/app/Http/routes.php">
-      <line num="14" type="stmt" count="22"/>
-      <line num="15" type="stmt" count="22"/>
-      <line num="16" type="stmt" count="22"/>
-      <line num="17" type="stmt" count="22"/>
-      <line num="20" type="stmt" count="22"/>
-      <line num="21" type="stmt" count="22"/>
-      <line num="22" type="stmt" count="22"/>
-      <line num="23" type="stmt" count="22"/>
-      <line num="25" type="stmt" count="22"/>
-      <line num="28" type="stmt" count="22"/>
-      <line num="29" type="stmt" count="22"/>
-      <line num="30" type="stmt" count="22"/>
-      <line num="31" type="stmt" count="22"/>
-      <line num="34" type="stmt" count="22"/>
-      <line num="35" type="stmt" count="22"/>
-      <line num="36" type="stmt" count="22"/>
-      <line num="37" type="stmt" count="22"/>
-      <line num="39" type="stmt" count="22"/>
-      <line num="42" type="stmt" count="22"/>
-      <line num="43" type="stmt" count="22"/>
-      <line num="44" type="stmt" count="22"/>
-      <line num="45" type="stmt" count="22"/>
-      <line num="47" type="stmt" count="22"/>
-      <line num="50" type="stmt" count="22"/>
-      <line num="51" type="stmt" count="22"/>
-      <line num="52" type="stmt" count="22"/>
-      <line num="53" type="stmt" count="22"/>
-      <line num="54" type="stmt" count="22"/>
-      <line num="57" type="stmt" count="22"/>
-      <line num="58" type="stmt" count="22"/>
-      <line num="59" type="stmt" count="22"/>
-      <line num="60" type="stmt" count="22"/>
-      <line num="62" type="stmt" count="22"/>
-      <line num="65" type="stmt" count="22"/>
-      <line num="66" type="stmt" count="22"/>
-      <line num="67" type="stmt" count="22"/>
-      <line num="68" type="stmt" count="22"/>
-      <line num="69" type="stmt" count="22"/>
-      <line num="70" type="stmt" count="22"/>
-      <line num="71" type="stmt" count="22"/>
-      <line num="72" type="stmt" count="22"/>
-      <line num="73" type="stmt" count="22"/>
-      <line num="76" type="stmt" count="22"/>
-      <line num="77" type="stmt" count="22"/>
-      <line num="78" type="stmt" count="22"/>
-      <line num="80" type="stmt" count="22"/>
-      <line num="82" type="stmt" count="22"/>
-      <line num="85" type="stmt" count="22"/>
-      <line num="86" type="stmt" count="22"/>
-      <line num="87" type="stmt" count="22"/>
-      <line num="88" type="stmt" count="22"/>
-      <line num="91" type="stmt" count="22"/>
-      <line num="92" type="stmt" count="22"/>
-      <line num="93" type="stmt" count="22"/>
-      <line num="94" type="stmt" count="22"/>
-      <metrics loc="94" ncloc="62" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="55" coveredstatements="55" elements="55" coveredelements="55"/>
+      <line num="14" type="stmt" count="23"/>
+      <line num="15" type="stmt" count="23"/>
+      <line num="16" type="stmt" count="23"/>
+      <line num="17" type="stmt" count="23"/>
+      <line num="20" type="stmt" count="23"/>
+      <line num="21" type="stmt" count="23"/>
+      <line num="22" type="stmt" count="23"/>
+      <line num="23" type="stmt" count="23"/>
+      <line num="26" type="stmt" count="23"/>
+      <line num="27" type="stmt" count="23"/>
+      <line num="28" type="stmt" count="23"/>
+      <line num="29" type="stmt" count="23"/>
+      <line num="31" type="stmt" count="23"/>
+      <line num="34" type="stmt" count="23"/>
+      <line num="35" type="stmt" count="23"/>
+      <line num="36" type="stmt" count="23"/>
+      <line num="37" type="stmt" count="23"/>
+      <line num="40" type="stmt" count="23"/>
+      <line num="41" type="stmt" count="23"/>
+      <line num="42" type="stmt" count="23"/>
+      <line num="43" type="stmt" count="23"/>
+      <line num="45" type="stmt" count="23"/>
+      <line num="48" type="stmt" count="23"/>
+      <line num="49" type="stmt" count="23"/>
+      <line num="50" type="stmt" count="23"/>
+      <line num="51" type="stmt" count="23"/>
+      <line num="53" type="stmt" count="23"/>
+      <line num="56" type="stmt" count="23"/>
+      <line num="57" type="stmt" count="23"/>
+      <line num="58" type="stmt" count="23"/>
+      <line num="59" type="stmt" count="23"/>
+      <line num="60" type="stmt" count="23"/>
+      <line num="63" type="stmt" count="23"/>
+      <line num="64" type="stmt" count="23"/>
+      <line num="65" type="stmt" count="23"/>
+      <line num="66" type="stmt" count="23"/>
+      <line num="68" type="stmt" count="23"/>
+      <line num="71" type="stmt" count="23"/>
+      <line num="72" type="stmt" count="23"/>
+      <line num="73" type="stmt" count="23"/>
+      <line num="74" type="stmt" count="23"/>
+      <line num="75" type="stmt" count="23"/>
+      <line num="76" type="stmt" count="23"/>
+      <line num="77" type="stmt" count="23"/>
+      <line num="78" type="stmt" count="23"/>
+      <line num="79" type="stmt" count="23"/>
+      <line num="82" type="stmt" count="23"/>
+      <line num="83" type="stmt" count="23"/>
+      <line num="84" type="stmt" count="23"/>
+      <line num="86" type="stmt" count="23"/>
+      <line num="88" type="stmt" count="23"/>
+      <line num="91" type="stmt" count="23"/>
+      <line num="92" type="stmt" count="23"/>
+      <line num="93" type="stmt" count="23"/>
+      <line num="94" type="stmt" count="23"/>
+      <line num="97" type="stmt" count="23"/>
+      <line num="98" type="stmt" count="23"/>
+      <line num="99" type="stmt" count="23"/>
+      <line num="100" type="stmt" count="23"/>
+      <metrics loc="100" ncloc="66" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="59" coveredstatements="59" elements="59" coveredelements="59"/>
     </file>
     <package name="Soma\Jobs">
       <file name="/home/homestead/soma-tech/app/Jobs/Job.php">
@@ -363,51 +369,51 @@
         <class name="AppServiceProvider" namespace="Soma\Providers">
           <metrics methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
         </class>
-        <line num="14" type="method" name="boot" crap="1" count="22"/>
-        <line num="17" type="stmt" count="22"/>
-        <line num="24" type="method" name="register" crap="1" count="22"/>
-        <line num="27" type="stmt" count="22"/>
+        <line num="14" type="method" name="boot" crap="1" count="23"/>
+        <line num="17" type="stmt" count="23"/>
+        <line num="24" type="method" name="register" crap="1" count="23"/>
+        <line num="27" type="stmt" count="23"/>
         <metrics loc="28" ncloc="14" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </file>
       <file name="/home/homestead/soma-tech/app/Providers/AuthServiceProvider.php">
         <class name="AuthServiceProvider" namespace="Soma\Providers">
           <metrics methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
         </class>
-        <line num="31" type="method" name="boot" crap="1" count="22"/>
-        <line num="33" type="stmt" count="22"/>
-        <line num="36" type="stmt" count="22"/>
+        <line num="31" type="method" name="boot" crap="1" count="23"/>
+        <line num="33" type="stmt" count="23"/>
+        <line num="36" type="stmt" count="23"/>
         <metrics loc="37" ncloc="24" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
       </file>
       <file name="/home/homestead/soma-tech/app/Providers/EventServiceProvider.php">
         <class name="EventServiceProvider" namespace="Soma\Providers">
           <metrics methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
         </class>
-        <line num="27" type="method" name="boot" crap="1" count="22"/>
-        <line num="29" type="stmt" count="22"/>
-        <line num="32" type="stmt" count="22"/>
+        <line num="27" type="method" name="boot" crap="1" count="23"/>
+        <line num="29" type="stmt" count="23"/>
+        <line num="32" type="stmt" count="23"/>
         <metrics loc="33" ncloc="20" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
       </file>
       <file name="/home/homestead/soma-tech/app/Providers/RouteServiceProvider.php">
         <class name="RouteServiceProvider" namespace="Soma\Providers">
           <metrics methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
         </class>
-        <line num="25" type="method" name="boot" crap="1" count="22"/>
-        <line num="29" type="stmt" count="22"/>
-        <line num="30" type="stmt" count="22"/>
-        <line num="40" type="method" name="anonymous function" crap="1" count="22"/>
-        <line num="41" type="stmt" count="22"/>
-        <line num="42" type="stmt" count="22"/>
-        <line num="43" type="stmt" count="22"/>
+        <line num="25" type="method" name="boot" crap="1" count="23"/>
+        <line num="29" type="stmt" count="23"/>
+        <line num="30" type="stmt" count="23"/>
+        <line num="40" type="method" name="anonymous function" crap="1" count="23"/>
+        <line num="41" type="stmt" count="23"/>
+        <line num="42" type="stmt" count="23"/>
+        <line num="43" type="stmt" count="23"/>
         <metrics loc="44" ncloc="23" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
       </file>
     </package>
     <file name="/home/homestead/soma-tech/app/helpers.php">
-      <line num="14" type="stmt" count="8"/>
-      <line num="16" type="stmt" count="8"/>
-      <line num="17" type="stmt" count="7"/>
+      <line num="14" type="stmt" count="9"/>
+      <line num="16" type="stmt" count="9"/>
+      <line num="17" type="stmt" count="8"/>
       <line num="20" type="stmt" count="1"/>
       <metrics loc="21" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="4" coveredelements="4"/>
     </file>
-    <metrics files="24" loc="1097" ncloc="704" classes="22" methods="47" coveredmethods="41" conditionals="0" coveredconditionals="0" statements="206" coveredstatements="188" elements="253" coveredelements="229"/>
+    <metrics files="24" loc="1113" ncloc="713" classes="22" methods="48" coveredmethods="42" conditionals="0" coveredconditionals="0" statements="211" coveredstatements="193" elements="259" coveredelements="235"/>
   </project>
 </coverage>

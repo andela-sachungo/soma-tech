@@ -16,6 +16,12 @@ Route::get('/', [
     'as' => 'homepage',
 ]);
 
+// about page route
+Route::get('about', [
+    'uses' => 'HomeController@about',
+    'as' => 'aboutpage',
+]);
+
 // Authentication routes...
 Route::get('auth/login', [
     'uses' => 'HomeController@login',

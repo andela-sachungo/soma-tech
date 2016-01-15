@@ -22,9 +22,7 @@
                 </div>
                  <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                     <label for="describe" class="control-label">Description</label>
-                    <textarea class="form-control" name = "description"
-                     rows="5" id="describe" placeholder ="What's the video about?">
-                    </textarea>
+                    <textarea class="form-control" name = "description" rows="5" id="describe" placeholder ="What's the video about?"></textarea>
                 </div>
                 <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
                     <select name = "category_id" class="form-control select">

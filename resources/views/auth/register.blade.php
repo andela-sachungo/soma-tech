@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-offset-3 col-sm-6">
             <form role="form" class="col s12" method="POST" action="{{ route('register') }}">
                 {!! csrf_field() !!}
                 @include('partials.error')
@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-offset-3 col-sm-6">
             <hr>
             <h5>Alternatively...</h5>
             <ul class="social">

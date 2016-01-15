@@ -4,11 +4,6 @@
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="/css/video.css">
-    <style>
-        body {
-            background: #e8edf3;
-        }
-    </style>
 @endsection
 
 @section('content')

@@ -41,4 +41,14 @@ class HomeController extends Controller
     {
         return view('dashboard.index');
     }
+
+    /**
+     * Return the about view.
+     *
+     * @return view
+     */
+    public function about()
+    {
+        return view('about.about');
+    }
 }

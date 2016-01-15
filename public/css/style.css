@@ -41,7 +41,7 @@
 }
 
 .navbar-color {
-    background: #9ad3de;
+    background: #7cb342;
 }
 
 body,html{
@@ -50,6 +50,8 @@ body,html{
 
 body {
     overflow-x:hidden;
+    background: url('../image/white_wall_hash.png') no-repeat left center;
+    background-size: cover;
 }
 .sticky-footer {
     min-height:100%;
@@ -59,7 +61,7 @@ body {
 footer{
     height:70px;
     margin-top:-70px;
-    background: #9ad3de;
+    background: #7cb342;
     width: 100%;
 }
 
@@ -79,4 +81,17 @@ footer{
     top:70px;
     width:228px;
   }
+}
+
+.brand-image{
+    height: 25px;
+    width: 35px;
+}
+
+#username {
+    margin-left: 5px;
+}
+
+#droplist {
+    width: auto;
 }

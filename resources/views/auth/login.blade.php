@@ -3,8 +3,8 @@
 @section('title', 'Login')
 
 @section('content')
-     <div class="row">
-        <div class="col-sm-6">
+   <div class="row">
+        <div class="col-sm-offset-3 col-sm-6">
             <form  method="POST" action="{{ route('login') }}">
                 {!! csrf_field() !!}
                 @include('partials.error')
@@ -22,9 +22,9 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div> <!-- .row -->
     <div class="row">
-        <div class="col-sm-6">
+        <div class=" col-sm-offset-3 col-sm-6">
             <hr>
             <h5>Alternatively...</h5>
             <ul class="social">
@@ -32,7 +32,7 @@
                 <li><a href="{{ route('social.auth', ['google']) }}"><i class="fa fa-google-plus"></i></a></li>
             </ul>
         </div>
-    </div>
+    </div> <!-- .row -->
 @endsection
 
 @section('styles')
