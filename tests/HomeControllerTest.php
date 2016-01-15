@@ -40,4 +40,15 @@ class HomeControllerTest extends TestCase
         $this->call('GET', 'dashboard');
         $this->assertResponseStatus(302);
     }
+
+    /**
+     * Test the about page route is accessible.
+     *
+     * @return void
+     */
+    public function testAbout()
+    {
+        $this->call('GET', 'about');
+        $this->assertResponseStatus(200);
+    }
 }

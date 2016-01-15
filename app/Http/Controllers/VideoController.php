@@ -20,10 +20,10 @@ class VideoController extends Controller
             'except' => [
                 'index',
                 'show',
+                'getVideosByCategory',
                 ],
             ]);
         $this->getCategories = Categories::all();
-        $this->user = auth()->user();
     }
 
     /**
@@ -64,7 +64,7 @@ class VideoController extends Controller
         $link = $this->youtubeEmbedLink($request->youtube_link);
 
         $category->videos()->create([
-            'user_id' => $this->user->id,
+            'user_id' => auth()->user()->id,
             'youtube_link' => $link,
             'title' => $request->title,
             'description' => $request->description,

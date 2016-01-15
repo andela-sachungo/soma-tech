@@ -26,7 +26,13 @@
 
     <footer>
         <div class="container">
-            Copyright &copy; 2015 soma-tech.app | All rights reserved.
+            <div class="text-center">
+                Copyright &copy; 2015 soma-tech.app
+                <br>
+                <a href="{{ route('aboutpage') }}">About Us</a>
+                <br>
+                By Stacey Achungo - #TIA
+            </div>
         </div>
     </footer>
 
