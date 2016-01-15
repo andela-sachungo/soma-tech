@@ -28,9 +28,15 @@
             <div class="row edit-box">
                 <div class="col-sm-4">
                    <div class="text-center">
-                        <img src="{{ $user->avatar }}"
+                        @if($user->avatar)
+                            <img src="{{ $user->avatar }}"
                              class="avatar img-circle img-thumbnail img-responsive"
                              alt="avatar">
+                        @else
+                            <img src="/image/person_avatar.png"
+                             class="avatar img-circle img-thumbnail img-responsive"
+                             alt="avatar">
+                        @endif
                         <h4>Upload a different photo...</h4>
                         <form action="{{ route('change.avatar', $user->id) }}"
                               method="POST"
