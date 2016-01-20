@@ -7,6 +7,7 @@ class Flash
     /**
      * Create a flash message.
      *
+     * Flash is HTTP specific hence no need to inject the Session::store()
      * @param  string  $title
      * @param  string  $message
      * @param  string  $key
@@ -14,7 +15,6 @@ class Flash
      */
     public function createFlash($title, $message, $type, $key = 'flash_message')
     {
-        // Flash is HTTP specific hence no need to inject the Session::store()
         session()->flash($key, [
                 'title' => $title,
                 'message' => $message,

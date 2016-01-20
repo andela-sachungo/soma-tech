@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
-@extends('layouts.master')
+≠@extends('layouts.master')
 
 @section('title', 'About')
 
