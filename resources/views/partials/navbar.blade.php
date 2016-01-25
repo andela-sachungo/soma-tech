@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-color navbar-static-top" role="navigation">
+<nav class="navbar navbar-default navbar-color navbar-static-top color-text" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <!--trigger the collapsing nature of the navbar list-->
@@ -12,7 +12,6 @@
 
             <!--Sites Logo-->
             <a class="navbar-brand" href="/">
-                <span><img src="/image/logo.jpg" class="brand-image"></span>
                 soma-tech
             </a>
        </div>
@@ -20,7 +19,7 @@
         <!--add responsive features to navbar(collapsible list) -->
        <div class="collapse navbar-collapse" id="navbar-hamburger">
             <ul class="nav navbar-nav navbar-left">
-                <li><a href="{{ route('aboutpage') }}" target="_self"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
+                <li><a href="{{ route('aboutpage') }}" target="_self"> About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if (auth()->user())

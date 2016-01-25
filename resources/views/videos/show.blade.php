@@ -4,16 +4,6 @@
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="/css/video.css">
-    <style>
-        .vid-thumbnail {
-            position: relative;
-        }
-
-        #button-caption {
-            position: absolute;
-            bottom: 10px;
-        }
-    </style>
 @endsection
 
 @section('content')
@@ -30,7 +20,7 @@
                     <div class="caption vid-thumbnail" id="align">
                         <p id="description"> {{ $video->description }}</p>
                         <br>
-                        <label><h5>Category:</h5></label><span style ="padding:5px;color: #aa863a">{{ $category->title }}</span>
+                        <label><h5>Category:</h5></label><span>{{ $category->title }}</span>
                         @can('userVideo', $video)
                             <div class="row" id="button-caption">
                                 <div class="col-sm-2">

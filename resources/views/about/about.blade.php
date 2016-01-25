@@ -1,25 +1,19 @@
-≠@extends('layouts.master')
+@extends('layouts.master')
 
 @section('title', 'About')
 
 @section('styles')
-    <style>
-        .color-icon {
-            color: #aa863a;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/css/soma.css">
 @endsection
 
 @section('content')
     <div class="row">
         <div id="mycarousel" class="carousel slide">
             <div class="carousel-inner">
-                <div class="item active"
-                 style="background: url('../image/about2.jpeg') no-repeat left center;
-                   background-size: cover; height: 300px;">
+                <div class="item active">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1 style="color:#aa863a">Soma-tech</h1>
+                            <h1>Soma-tech</h1>
                             <p class="lead">Soma-tech is a learning management system that enables you to learn various technologies.</p>
                         </div>
                     </div>
@@ -64,9 +58,5 @@
 @endsection
 
 @section('scripts')
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#mycarousel').carousel();
-        });
-    </script>
+     <script src = "/js/soma.js"></script>
 @endsection

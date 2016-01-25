@@ -3,21 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('styles')
-    <style type="text/css">
-        img .avatar {
-            border: 1px solid #eee;
-        }
-
-        #profile {
-            font-style:oblique;
-            font-size: 1.5em;
-        }
-
-        .photo-size {
-            width: 200px;
-            height: 200px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/css/soma.css">
 @endsection
 
 @section('content')
@@ -43,7 +29,7 @@
                            <div class="col-sm-7" id = "profile">
                                 <span class="text-muted">Name:</span>{{ auth()->user()->name}}<br>
                                 <span class="text-muted">Email:</span> {{ auth()->user()->email}}<br>
-                                <span class="text-muted">Created on:</span> {{ substr(auth()->user()->created_at, 0, 10) }}<br>
+                                <span class="text-muted">Created on:</span> {{ date("M d, Y", strtotime(substr(auth()->user()->created_at, 0, 10))) }}<br>
                            </div> <!-- .col-sm-6-->
                         </div> <!-- .row-->
                     </div> <!-- .col-sm-8-->

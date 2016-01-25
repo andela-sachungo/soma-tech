@@ -6,7 +6,7 @@
         </div> <!-- .embed-responsive -->
         <div class="caption vid-thumbnail" id="align">
             <h4>{{ $video->title }}</h4>
-            <h6>{{ substr($video->created_at, 0, 10) }}</h6>
+            <h6>{{ date("M d, Y", strtotime(substr($video->created_at, 0, 10))) }}</h6>
             <p id="desc"> {{ $video->description }}</p>
             <a href="{{ route('video.show', $video->id) }}" class="btn btn-default btn-sm pull-right">More Info</a>
             @can('userVideo', $video)
