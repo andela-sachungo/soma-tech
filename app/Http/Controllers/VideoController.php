@@ -4,6 +4,8 @@ namespace Soma\Http\Controllers;
 
 use Soma\Videos;
 use Soma\Categories;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Soma\Http\Requests\VideoRequest;
 
 class VideoController extends Controller
@@ -21,6 +23,7 @@ class VideoController extends Controller
                 'index',
                 'show',
                 'getVideosByCategory',
+                'viewCount',
                 ],
             ]);
         $this->getCategories = Categories::all();
@@ -62,10 +65,12 @@ class VideoController extends Controller
         $category = Categories::find($request->category_id);
 
         $link = $this->youtubeEmbedLink($request->youtube_link);
+        $videoId = $this->getYoutubeId($request->youtube_link);
 
         $category->videos()->create([
             'user_id' => auth()->user()->id,
             'youtube_link' => $link,
+            'youtube_id' => $videoId,
             'title' => $request->title,
             'description' => $request->description,
             ]);
@@ -113,9 +118,14 @@ class VideoController extends Controller
     public function update(VideoRequest $request, $id)
     {
         $video = Videos::find($id);
+
+        $link = $this->youtubeEmbedLink($request->youtube_link);
+        $videoId = $this->getYoutubeId($request->youtube_link);
+
         $video->update([
             'category_id' => $request->category_id,
-            'youtube_link' => $request->youtube_link,
+            'youtube_link' => $link,
+            'youtube_id' => $videoId,
             'title' => $request->title,
             'description' => $request->description,
             ]);
@@ -173,10 +183,28 @@ class VideoController extends Controller
     }
 
     /**
+     * Save the count variable in the database.
+     *
+     * @param  Illuminate\Http\Request
+     * @return void
+     */
+    public function viewCount(Request $request)
+    {
+        if (isset($request->id)) {
+            $video = Videos::find($request->id);
+
+            $video->play = is_null($video->play) ? 1 : $video->play + 1;
+            $video->save();
+
+            return new Response($video->play, 200);
+        }
+    }
+
+    /**
      * Write the URL to allow the video to be embedded on page.
      *
      * @param  string  $youtubeLink
-     * @return \Illuminate\Http\Response
+     * @return string
      */
     private function youtubeEmbedLink($youtubeLink)
     {
@@ -185,5 +213,19 @@ class VideoController extends Controller
         $url = preg_replace($search, $replace, $youtubeLink);
 
         return $url;
+    }
+
+    /**
+     * Get the youtube id from the submitted url.
+     *
+     * @param  string  $youtubeLink
+     * @return string
+     */
+    private function getYoutubeId($youtubeLink)
+    {
+        $pattern = "/^(?:https?:\/\/)?(?:www\.youtube\.com\/)(?:embed\/|watch\?v=)([\w-]{9,12})(?:.*)$/";
+        preg_match($pattern, $youtubeLink, $matches);
+
+        return $matches[1];
     }
 }

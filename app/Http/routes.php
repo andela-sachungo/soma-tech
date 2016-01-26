@@ -98,3 +98,6 @@ Route::get('categories/{id}/videos', [
     'uses' => 'VideoController@getVideosByCategory',
     'as' => 'category.videos',
 ]);
+
+// Post the view count to database
+Route::post('/views/video', 'VideoController@viewCount');

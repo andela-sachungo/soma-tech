@@ -22,8 +22,10 @@ class Videos extends Model
         'category_id',
         'user_id',
         'youtube_link',
+        'youtube_id',
         'title',
         'description',
+        'play',
     ];
 
     /**

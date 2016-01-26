@@ -3,6 +3,7 @@
 @section('title', 'Show a video')
 
 @section('styles')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" type="text/css" href="/css/video.css">
 @endsection
 
@@ -15,7 +16,7 @@
                 <div class="thumbnail box-shadow" id="single-video">
                     <!-- 16:9 aspect ratio -->
                     <div class="embed-responsive embed-responsive-4by3">
-                        <iframe class="embed-responsive-item" src="{{ $video->youtube_link }}" allowfullscreen></iframe>
+                        <iframe id="player" class="embed-responsive-item" src="{{ $video->youtube_link }}?enablejsapi=1&origin=http://soma-tech.app" allowfullscreen></iframe>
                     </div> <!-- .embed-responsive -->
                     <div class="caption vid-thumbnail" id="align">
                         <p id="description"> {{ $video->description }}</p>
@@ -26,12 +27,12 @@
                                 <div class="col-sm-2">
                                     <a href="{{ route('homepage') }}" class="btn btn-md btn-default">Homepage</a>
                                 </div>
-                                <div class="col-sm-1" style="margin-left:50px; margin-right:15px">
+                                <div class="col-sm-1" id="btn-edit">
                                     <a href="{{ route('video.edit', $video->id) }}" class="btn btn-md btn-info btn-shape">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                 </div>
-                                <div class="col-sm-1" style="margin-right:15px">
+                                <div class="col-sm-1" id="btn-del">
                                     <!-- Form to send a HTTP DELETE request -->
                                     {!! Form::open(array('route' => array('video.destroy', $video->id), 'method' => 'delete')) !!}
                                         <button type="submit" class = "btn btn-md btn-default btn-shape"><i class="fa fa-trash"></i></button>
@@ -39,9 +40,15 @@
                                 </div>
                             </div>
                         @endcan
+                        <p id="count">{{ $video->play }} Views</p>
                     </div> <!-- .caption -->
                 </div> <!-- .thumbnail -->
             </div> <!-- .col-sm-offset-2 -->
         </div> <!-- .container -->
     </div> <!-- .row -->
 @endsection
+
+@section('scripts')
+    <script src="/js/youtube.js"></script>
+@endsection
+

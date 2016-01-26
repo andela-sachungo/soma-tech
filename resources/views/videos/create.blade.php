@@ -36,6 +36,8 @@
                     <button type="submit" class="btn btn-primary">Add</button>
                 </div>
             </form>
-        </div>
-    </div>
+        </div> <!-- .col-sm-6 -->
+
+        <div class="col-sm-3"></div> <!-- .col-sm-3 -->
+    </div> <!-- .row -->
 @endsection

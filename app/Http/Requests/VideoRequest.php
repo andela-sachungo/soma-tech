@@ -23,7 +23,7 @@ class VideoRequest extends Request
     {
         return [
             'youtube_link' => 'required|url',
-            'title' => 'required',
+            'title' => 'required|max:30',
             'description' => 'required',
         ];
     }

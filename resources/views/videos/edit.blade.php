@@ -6,7 +6,7 @@
     <div class="row">
         @include('partials.sidebar')
 
-        <div class="col-sm-10">
+        <div class="col-sm-7">
             <h3>Edit Video</h3>
             <hr>
 
