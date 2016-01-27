@@ -13,7 +13,11 @@
                 <div class="col-sm-4 myBtn">
                     <h5>
                         <span><i class="fa fa-eye"></i></span>
-                            {{ $video->play }}
+                            @if(is_null($video->play))
+                                {{ $video->play = 0 }}
+                            @else
+                                {{ $video->play }}
+                            @endif
                     </h5>
                 </div>
                 <div class="col-sm-8 myBtn">

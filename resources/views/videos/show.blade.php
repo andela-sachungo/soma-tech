@@ -9,43 +9,75 @@
 
 @section('content')
     <div class="row">
-        <div class="container">
-            <div class="col-sm-offset-2 col-sm-8">
-                <h4 id="video-title">{{ $video->title }}</h4>
-                <hr>
-                <div class="thumbnail box-shadow" id="single-video">
-                    <!-- 16:9 aspect ratio -->
-                    <div class="embed-responsive embed-responsive-4by3">
-                        <iframe id="player" class="embed-responsive-item" src="{{ $video->youtube_link }}?enablejsapi=1&origin=http://soma-tech.app" allowfullscreen></iframe>
-                    </div> <!-- .embed-responsive -->
-                    <div class="caption vid-thumbnail" id="align">
-                        <p id="description"> {{ $video->description }}</p>
-                        <br>
-                        <label><h5>Category:</h5></label><span>{{ $category->title }}</span>
-                        @can('userVideo', $video)
-                            <div class="row" id="button-caption">
-                                <div class="col-sm-2">
-                                    <a href="{{ route('homepage') }}" class="btn btn-md btn-default">Homepage</a>
+        <div class="col-sm-3">
+            @include('partials.category_list')
+        </div> <!-- .col-sm-3 -->
+
+        <div class="col-sm-9">
+            <div class="thumbnail box-shadow">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe id="player"
+                    class="embed-responsive-item"
+                    src="{{ $video->youtube_link }}?enablejsapi=1&origin=http://soma-tech.app"
+                    allowfullscreen></iframe>
+                </div> <!-- .embed-responsive -->
+                <div class="caption vid-thumbnail" id="align">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h4 id="video-title">{{ $video->title }}</h4>
+                            <p id="description"> {{ $video->description }}</p>
+                            <label><h5>{{ $video->category->title }} Category</h5></label>
+                        </div> <!-- .col-sm-9 -->
+                        <div class="col-sm-3" id="details">
+                            <h5>
+                                <span><i class="fa fa-user"></i></span>
+                                By {{ $video->userDirect->name }}
+                            </h5>
+                            <p>{{ date("M d, Y", strtotime(substr($video->created_at, 0, 10))) }}</p>
+
+                            @if(is_null($video->play))
+                                <h5>{{ $video->play = 0 }} Views</h5>
+                            @else
+                                <h5 id="count">{{ $video->play }} Views</h5>
+                            @endif
+                        </div> <!-- .col-sm-3 -->
+                    </div> <!-- .row -->
+                </div> <!-- .caption -->
+
+                <div class="more">
+                    <div class="row">
+                        <div class="col-sm-12 myBtn">
+                            @can('userVideo', $video)
+                                <div class="right">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <!-- Form to send a HTTP DELETE request -->
+                                            {!! Form::open(array('route' => array('video.destroy', $video->id), 'method' => 'delete')) !!}
+                                                <button type="submit" class = "btn btn-md btn-default btn-shape">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            {!! Form::close() !!}
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <a href="{{ route('video.edit', $video->id) }}" class="btn btn-md btn-info btn-shape">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <a href="{{ route('homepage') }}" class="btn btn-md btn-default btn-shape">
+                                                <i class="fa fa-home"></i>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-sm-1" id="btn-edit">
-                                    <a href="{{ route('video.edit', $video->id) }}" class="btn btn-md btn-info btn-shape">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                </div>
-                                <div class="col-sm-1" id="btn-del">
-                                    <!-- Form to send a HTTP DELETE request -->
-                                    {!! Form::open(array('route' => array('video.destroy', $video->id), 'method' => 'delete')) !!}
-                                        <button type="submit" class = "btn btn-md btn-default btn-shape"><i class="fa fa-trash"></i></button>
-                                    {!! Form::close() !!}
-                                </div>
-                            </div>
-                        @endcan
-                        <p id="count">{{ $video->play }} Views</p>
-                    </div> <!-- .caption -->
-                </div> <!-- .thumbnail -->
-            </div> <!-- .col-sm-offset-2 -->
-        </div> <!-- .container -->
+                            @endcan
+                        </div>
+                    </div> <!-- .row -->
+                </div> <!-- .more -->
+            </div> <!-- .thumbnail -->
+        </div> <!-- .col-sm-9 -->
     </div> <!-- .row -->
+
 @endsection
 
 @section('scripts')

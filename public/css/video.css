@@ -48,12 +48,14 @@
     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, .14),0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
 }
 
-#single-video{
-    max-height: auto;
+.embed-responsive-16by9 {
+  padding-bottom: 51.75%;
 }
 
 #description {
     color: white;
+    opacity: 0.9;
+    word-wrap: break-word;
 }
 
 #back-button {
@@ -68,7 +70,7 @@
     position: relative;
 }
 
-.vid-thumbnail label h5 {
+.vid-thumbnail label h5, .vid-thumbnail #details {
     opacity: 0.7;
     color: white;
 }
@@ -103,4 +105,9 @@
 .thumbnail .more .myBtn {
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.thumbnail .more .myBtn .right {
+    margin-right: 15px;
+    float: right;
 }

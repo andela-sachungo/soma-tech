@@ -88,10 +88,10 @@ class VideoController extends Controller
      */
     public function show($id)
     {
-        $video = Videos::find($id);
-        $category = Categories::find($video->category_id);
+        $video = Videos::with('category', 'userDirect')->where('id', $id)->first();
+        $categories = $this->getCategories;
 
-        return view('videos.show', compact('video', 'category'));
+        return view('videos.show', compact('video', 'categories'));
     }
 
     /**
