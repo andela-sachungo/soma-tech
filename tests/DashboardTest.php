@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class DashboardTest extends TestCase
 {
@@ -68,6 +69,28 @@ class DashboardTest extends TestCase
              ->see('Profile Updated');
 
         $this->seeInDatabase('users', ['email' => 'zuliadexa@example.com']);
+    }
+
+    /**
+     * Test the user can update their profile picture.
+     *
+     * @return void
+     */
+    public function testUserAvatarUpdated()
+    {
+        $user = factory(Soma\User::class)->create();
+
+        $path          = storage_path('app/bird.jpeg');
+        $original_name = 'bird.jpeg';
+        $mime_type     = 'image/jpeg';
+
+
+        $file = new UploadedFile($path, $original_name, $mime_type);
+        $this->withoutMiddleware();
+
+        $this->call('POST', "profile/{$user->id}/photo", [], [], ['upload' => $file], []);
+
+        $this->assertResponseStatus(302);
     }
 
     /**
