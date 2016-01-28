@@ -22,8 +22,10 @@ class Videos extends Model
         'category_id',
         'user_id',
         'youtube_link',
+        'youtube_id',
         'title',
         'description',
+        'play',
     ];
 
     /**
@@ -34,5 +36,15 @@ class Videos extends Model
     public function category()
     {
         return $this->belongsTo('Soma\Categories');
+    }
+
+    /**
+     * A video belongs to a user.
+     *
+     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function userDirect()
+    {
+        return $this->belongsTo('Soma\User', 'user_id');
     }
 }

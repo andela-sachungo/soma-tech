@@ -10,19 +10,25 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-// homepage route
+/**
+ * Homepage route.
+ */
 Route::get('/', [
     'uses' => 'VideoController@index',
     'as' => 'homepage',
 ]);
 
-// about page route
+/*
+ * About page route.
+ */
 Route::get('about', [
     'uses' => 'HomeController@about',
     'as' => 'aboutpage',
 ]);
 
-// Authentication routes...
+/*
+ * Traditional Authentication routes.
+ */
 Route::get('auth/login', [
     'uses' => 'HomeController@login',
     'as' => 'login',
@@ -30,13 +36,11 @@ Route::get('auth/login', [
 
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 
-// Logout route
 Route::get('auth/logout', [
     'uses' => 'Auth\AuthController@getLogout',
     'as' => 'logout',
 ]);
 
-// Registration routes...
 Route::get('auth/register', [
     'uses' => 'HomeController@register',
     'as' => 'register',
@@ -44,7 +48,9 @@ Route::get('auth/register', [
 
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-// Social authentication routes
+/*
+ * Social authentication routes.
+ */
 Route::get('auth/{provider}', [
     'uses' => 'Auth\SocialAuthController@redirectToProvider',
     'as' => 'social.auth',
@@ -52,14 +58,18 @@ Route::get('auth/{provider}', [
 
 Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
 
-// Dashboard route
+/*
+ * Dashboard route.
+ */
 Route::get('dashboard', [
     'middleware' => 'auth',
     'uses' => 'HomeController@dashboard',
     'as' => 'dashboard',
 ]);
 
-// Video route
+/*
+ * Video routes.
+ */
 Route::get('video/myvideos', [
     'uses' => 'VideoController@getVideos',
     'as' => 'own.videos',
@@ -67,7 +77,9 @@ Route::get('video/myvideos', [
 
 Route::resource('video', 'VideoController');
 
-//Category route
+/*
+ * Category routes.
+ */
 Route::get('category/mycategories', [
     'uses' => 'CategoryController@getCategories',
     'as' => 'own.categories',
@@ -78,7 +90,9 @@ Route::resource(
     ['except' => ['show', 'index', 'create']]
 );
 
-// Profile route
+/*
+ * User profile route.
+ */
 Route::resource(
     'profile',
     'ProfileController',
@@ -87,14 +101,23 @@ Route::resource(
     ]
 );
 
-// change avatar
+/*
+ * Changing user avatar route.
+ */
 Route::post('profile/{id}/photo', [
     'uses' => 'ProfileController@changeAvatar',
     'as' => 'change.avatar',
 ]);
 
-// Get videos by category
+/*
+ * Get videos by category.
+ */
 Route::get('categories/{id}/videos', [
     'uses' => 'VideoController@getVideosByCategory',
     'as' => 'category.videos',
 ]);
+
+/*
+ * Post the number of times a video is viewed to database.
+ */
+Route::post('/views/video', 'VideoController@viewCount');

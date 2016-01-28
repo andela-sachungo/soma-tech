@@ -3,16 +3,9 @@
 @section('title', 'Edit profile')
 
 @section('styles')
-    <style type="text/css">
-        img .avatar {
-            border: 1px solid #eee;
-        }
-        .edit-box {
-            border-style: ridge;
-            padding: 8px;
-        }
-    </style>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/soma.css">
+    <link rel="stylesheet" type="text/css" href="/css/other.css">
 @endsection
 
 @section('content')
@@ -30,11 +23,11 @@
                    <div class="text-center">
                         @if($user->avatar)
                             <img src="{{ $user->avatar }}"
-                             class="avatar img-circle img-thumbnail img-responsive"
+                             class="img-circle img-thumbnail img-responsive"
                              alt="avatar">
                         @else
                             <img src="/image/person_avatar.png"
-                             class="avatar img-circle img-thumbnail img-responsive"
+                             class="img-circle img-thumbnail img-responsive"
                              alt="avatar">
                         @endif
                         <h4>Upload a different photo...</h4>
@@ -70,18 +63,5 @@
 
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.js"></script>
-    <script >
-        Dropzone.options.changeAvatar = {
-            paramName: "photo",
-            maxFilesize: 1,
-            acceptedFiles: '.jpg, .jpeg, .png, .bmp',
-            maxFiles: 1,
-            init: function() {
-                this.on('maxfilesexceeded', function(file) {
-                    this.removeAllFiles();
-                    this.addFile(file);
-                });
-            }
-        };
-    </script>
+    <script src ="/js/dropzone.js"></script>
 @endsection
