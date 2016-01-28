@@ -2,6 +2,10 @@
 
 @section('title', 'Create video')
 
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="/css/other.css">
+@endsection
+
 @section('content')
     <div class="row">
          @include('partials.sidebar')

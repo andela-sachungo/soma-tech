@@ -30,9 +30,9 @@ class VideoController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Paginate all the videos in the database.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function index()
     {
@@ -43,9 +43,9 @@ class VideoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for uploading a new video.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function create()
     {
@@ -55,10 +55,10 @@ class VideoController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Save the video in the database.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Soma\Http\Requests\VideoRequest  $request
+     * @return \Illuminate\Routing\Redirector
      */
     public function store(VideoRequest $request)
     {
@@ -81,10 +81,10 @@ class VideoController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Get a single video details.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function show($id)
     {
@@ -95,10 +95,10 @@ class VideoController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Get the for for editing a video.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function edit($id)
     {
@@ -109,11 +109,11 @@ class VideoController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the svideo details in the database.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  Soma\Http\Requests\VideoRequest $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Routing\Redirector
      */
     public function update(VideoRequest $request, $id)
     {
@@ -136,10 +136,10 @@ class VideoController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete the video from database.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Routing\Redirector
      */
     public function destroy($id)
     {
@@ -157,9 +157,9 @@ class VideoController extends Controller
     }
 
     /**
-     * Get the videos of a particular user.
+     * Get all the videos of a particular user.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function getVideos()
     {
@@ -172,7 +172,7 @@ class VideoController extends Controller
     /**
      * Get all the videos of a particular category.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function getVideosByCategory($id)
     {
@@ -183,10 +183,10 @@ class VideoController extends Controller
     }
 
     /**
-     * Save the count variable in the database.
+     * Save the number of times a video is viewed.
      *
-     * @param  Illuminate\Http\Request
-     * @return void
+     * @param  \Illuminate\Http\Request
+     * @return \Illuminate\Http\Response
      */
     public function viewCount(Request $request)
     {

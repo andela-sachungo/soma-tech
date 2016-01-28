@@ -111,3 +111,7 @@
     margin-right: 15px;
     float: right;
 }
+
+.sticky-footer .container {
+    margin-top: 70px;
+}

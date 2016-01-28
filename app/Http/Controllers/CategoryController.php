@@ -17,10 +17,10 @@ class CategoryController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created category in database.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  Soma\Http\Requests\CategoriesRequest  $request
+     * @return \Illuminate\Routing\Redirector
      */
     public function store(CategoriesRequest $request)
     {
@@ -35,10 +35,10 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the category.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function edit($id)
     {
@@ -48,11 +48,11 @@ class CategoryController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the category.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  Soma\Http\Requests\CategoriesRequest  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Routing\Redirector
      */
     public function update(CategoriesRequest $request, $id)
     {
@@ -67,10 +67,10 @@ class CategoryController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete the category.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Routing\Redirector
      */
     public function destroy($id)
     {
@@ -91,7 +91,7 @@ class CategoryController extends Controller
     /**
      * Get the categories of a particular user.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function getCategories()
     {

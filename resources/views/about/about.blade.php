@@ -4,6 +4,7 @@
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="/css/soma.css">
+    <link rel="stylesheet" type="text/css" href="/css/about.css">
 @endsection
 
 @section('content')

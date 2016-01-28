@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-color navbar-static-top color-text" role="navigation">
+<nav class="navbar navbar-default navbar-color navbar-fixed-top color-text" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <!--trigger the collapsing nature of the navbar list-->

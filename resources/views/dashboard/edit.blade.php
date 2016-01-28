@@ -5,6 +5,7 @@
 @section('styles')
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.css">
     <link rel="stylesheet" type="text/css" href="/css/soma.css">
+    <link rel="stylesheet" type="text/css" href="/css/other.css">
 @endsection
 
 @section('content')
