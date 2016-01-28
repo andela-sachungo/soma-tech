@@ -90,7 +90,7 @@ class DashboardTest extends TestCase
 
         $this->call('POST', "profile/{$user->id}/photo", [], [], ['upload' => $file], []);
 
-        $this->assertResponseOk();
+        $this->assertResponseStatus(302);
     }
 
     /**
