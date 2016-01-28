@@ -18,7 +18,7 @@ Route::get('/', [
     'as' => 'homepage',
 ]);
 
-/**
+/*
  * About page route.
  */
 Route::get('about', [
@@ -26,7 +26,7 @@ Route::get('about', [
     'as' => 'aboutpage',
 ]);
 
-/**
+/*
  * Traditional Authentication routes.
  */
 Route::get('auth/login', [
@@ -36,12 +36,10 @@ Route::get('auth/login', [
 
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 
-
 Route::get('auth/logout', [
     'uses' => 'Auth\AuthController@getLogout',
     'as' => 'logout',
 ]);
-
 
 Route::get('auth/register', [
     'uses' => 'HomeController@register',
@@ -50,7 +48,7 @@ Route::get('auth/register', [
 
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-/**
+/*
  * Social authentication routes.
  */
 Route::get('auth/{provider}', [
@@ -60,7 +58,7 @@ Route::get('auth/{provider}', [
 
 Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
 
-/**
+/*
  * Dashboard route.
  */
 Route::get('dashboard', [
@@ -69,7 +67,7 @@ Route::get('dashboard', [
     'as' => 'dashboard',
 ]);
 
-/**
+/*
  * Video routes.
  */
 Route::get('video/myvideos', [
@@ -79,7 +77,7 @@ Route::get('video/myvideos', [
 
 Route::resource('video', 'VideoController');
 
-/**
+/*
  * Category routes.
  */
 Route::get('category/mycategories', [
@@ -92,7 +90,7 @@ Route::resource(
     ['except' => ['show', 'index', 'create']]
 );
 
-/**
+/*
  * User profile route.
  */
 Route::resource(
@@ -103,7 +101,7 @@ Route::resource(
     ]
 );
 
-/**
+/*
  * Changing user avatar route.
  */
 Route::post('profile/{id}/photo', [
@@ -111,7 +109,7 @@ Route::post('profile/{id}/photo', [
     'as' => 'change.avatar',
 ]);
 
-/**
+/*
  * Get videos by category.
  */
 Route::get('categories/{id}/videos', [
@@ -119,7 +117,7 @@ Route::get('categories/{id}/videos', [
     'as' => 'category.videos',
 ]);
 
-/**
+/*
  * Post the number of times a video is viewed to database.
  */
 Route::post('/views/video', 'VideoController@viewCount');

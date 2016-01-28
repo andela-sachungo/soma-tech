@@ -65,7 +65,7 @@ class User extends Model implements
         return $query->where('email', $email);
     }
 
-     /**
+    /**
      * A user has many videos.
      *
      * @return Illuminate\Database\Eloquent\Relations\HasMany
