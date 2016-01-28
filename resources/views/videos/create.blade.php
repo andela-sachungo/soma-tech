@@ -8,7 +8,7 @@
 
         <div class="col-sm-6">
             <h3>Add a Video</h3>
-            <form method="POST" action="{{ route('video.store') }}">
+            <form method="POST" action="{{ route('video.store') }}" id="create-video">
                 {!! csrf_field() !!}
                 @include('partials.error')
 
@@ -25,7 +25,7 @@
                     <textarea class="form-control" name = "description" rows="5" id="describe" placeholder ="What's the video about?"></textarea>
                 </div>
                 <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
-                    <select name = "category_id" class="form-control select">
+                    <select name = "category" class="form-control select" id="select-cat">
                         <option value = "">Select category</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}"> {{ $category->title }}</option>
@@ -38,6 +38,11 @@
             </form>
         </div> <!-- .col-sm-6 -->
 
-        <div class="col-sm-3"></div> <!-- .col-sm-3 -->
+        <div class="col-sm-3">
+        </div> <!-- .col-sm-3 -->
     </div> <!-- .row -->
+@endsection
+
+@section('scripts')
+    @include('partials.flash')
 @endsection

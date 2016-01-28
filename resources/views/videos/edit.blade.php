@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
                     {!! Form::label('category', 'Category', ['class' => 'control-label']) !!}
-                    <select name = "category_id" class="form-control select">
+                    <select name = "category" class="form-control select">
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}" {{ $category->id == $video->category_id ? 'selected' : ''}}> {{ $category->title }} </option>
                         @endforeach

@@ -1,7 +1,7 @@
 <div class="col-sm-4">
     <div class="thumbnail box-shadow">
         <img src="http://img.youtube.com/vi/{{ $video->youtube_id }}/hqdefault.jpg">
-        <a href="{{ route('video.show', $video->id) }}">
+        <a href="{{ route('video.show', $video->id) }}" id="test">
             <div class="caption vid-thumbnail" id="align">
                 <h4>{{ $video->title }}</h4>
                 <h6>{{ date("M d, Y", strtotime(substr($video->created_at, 0, 10))) }}</h6>
@@ -14,7 +14,7 @@
                     <h5>
                         <span><i class="fa fa-eye"></i></span>
                             @if(is_null($video->play))
-                                {{ $video->play = 0 }}
+                                0
                             @else
                                 {{ $video->play }}
                             @endif

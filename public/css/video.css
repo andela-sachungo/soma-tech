@@ -39,7 +39,7 @@
     background-color:rgba(0,0,0,0.7);
 }
 .list-scrollable {
-    height: 400px;
+    max-height: 400px;
     overflow: auto;
 }
 

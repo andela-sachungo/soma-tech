@@ -25,7 +25,7 @@
 
 .row .panel table tbody {
     display:block;
-    height: 300px;
+    max-height: 300px;
     overflow: auto;
 }
 

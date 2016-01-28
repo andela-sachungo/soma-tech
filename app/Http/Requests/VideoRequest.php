@@ -25,6 +25,7 @@ class VideoRequest extends Request
             'youtube_link' => 'required|url',
             'title' => 'required|max:30',
             'description' => 'required',
+            'category' => 'required',
         ];
     }
 }

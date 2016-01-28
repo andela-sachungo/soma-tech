@@ -18,7 +18,7 @@
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe id="player"
                     class="embed-responsive-item"
-                    src="{{ $video->youtube_link }}?enablejsapi=1&origin=http://soma-tech.app"
+                    src="{{ $video->youtube_link }}?enablejsapi=1&origin=http://soma-tech.herokuapp.com"
                     allowfullscreen></iframe>
                 </div> <!-- .embed-responsive -->
                 <div class="caption vid-thumbnail" id="align">
@@ -34,12 +34,7 @@
                                 By {{ $video->userDirect->name }}
                             </h5>
                             <p>{{ date("M d, Y", strtotime(substr($video->created_at, 0, 10))) }}</p>
-
-                            @if(is_null($video->play))
-                                <h5>{{ $video->play = 0 }} Views</h5>
-                            @else
-                                <h5 id="count">{{ $video->play }} Views</h5>
-                            @endif
+                            <h5 id="count">{{ $video->play }} Views</h5>
                         </div> <!-- .col-sm-3 -->
                     </div> <!-- .row -->
                 </div> <!-- .caption -->
@@ -47,9 +42,9 @@
                 <div class="more">
                     <div class="row">
                         <div class="col-sm-12 myBtn">
-                            @can('userVideo', $video)
-                                <div class="right">
-                                    <div class="row">
+                            <div class="right">
+                                <div class="row">
+                                    @can('userVideo', $video)
                                         <div class="col-sm-4">
                                             <!-- Form to send a HTTP DELETE request -->
                                             {!! Form::open(array('route' => array('video.destroy', $video->id), 'method' => 'delete')) !!}
@@ -63,15 +58,15 @@
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <a href="{{ route('homepage') }}" class="btn btn-md btn-default btn-shape">
-                                                <i class="fa fa-home"></i>
-                                            </a>
-                                        </div>
+                                    @endcan
+                                    <div class="col-sm-4">
+                                        <a href="{{ route('homepage') }}" class="btn btn-md btn-default btn-shape">
+                                            <i class="fa fa-home"></i>
+                                        </a>
                                     </div>
-                                </div>
-                            @endcan
-                        </div>
+                                </div><!-- .row -->
+                            </div><!-- .right -->
+                        </div><!-- #myBtn -->
                     </div> <!-- .row -->
                 </div> <!-- .more -->
             </div> <!-- .thumbnail -->

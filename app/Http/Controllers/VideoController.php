@@ -62,7 +62,7 @@ class VideoController extends Controller
      */
     public function store(VideoRequest $request)
     {
-        $category = Categories::find($request->category_id);
+        $category = Categories::find($request->category);
 
         $link = $this->youtubeEmbedLink($request->youtube_link);
         $videoId = $this->getYoutubeId($request->youtube_link);
@@ -75,9 +75,9 @@ class VideoController extends Controller
             'description' => $request->description,
             ]);
 
-        flash()->success('Success!', 'You have uploaded a video');
+        flash()->success('Success!', 'Video uploaded');
 
-        return redirect()->route('own.videos');
+        return redirect()->back();
     }
 
     /**
@@ -123,7 +123,7 @@ class VideoController extends Controller
         $videoId = $this->getYoutubeId($request->youtube_link);
 
         $video->update([
-            'category_id' => $request->category_id,
+            'category_id' => $request->category,
             'youtube_link' => $link,
             'youtube_id' => $videoId,
             'title' => $request->title,

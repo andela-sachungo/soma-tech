@@ -23,9 +23,9 @@ class VideosTest extends TestCase
              ->type('https://www.youtube.com/embed/qVM7cwqGTTU&index=4&list=RDH1XrbuOoKFw', 'youtube_link')
              ->type('I will worship you', 'title')
              ->type('Gospel worship video', 'description')
-             ->select($category->id, 'category_id')
+             ->select($category->id, 'category')
              ->press('Add')
-             ->seePageIs('/video/myvideos')
+             ->seePageIs('video/create')
              ->see('Success!');
 
         $this->seeInDatabase('videos', ['title' => 'I will worship you']);
@@ -146,10 +146,9 @@ class VideosTest extends TestCase
                  'description' => "Kirk Franklin's Gospel song,"
             ]);
 
-        $this->actingAs($user)
-             ->visit('video/myvideos')
+        $this->visit('/')
              ->see('My life is in your hands')
-             ->click('More Info')
+             ->click('test')
              ->seePageIs("video/{$video->id}");
     }
 }
