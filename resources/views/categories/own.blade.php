@@ -3,28 +3,8 @@
 @section('title', 'My category')
 
 @section('styles')
-    <style type="text/css">
-        .btn-shape {
-            border-radius: 30px;
-            margin-right: 5px;
-            float: right;
-            margin-top: 5px;
-        }
-
-        tbody {
-            display:block;
-            height: 300px;
-            overflow: auto;
-        }
-
-        tbody tr {
-            display: table;
-            width: 100%;
-        }
-        #text-style {
-            font-style: oblique;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/css/soma.css">
+    <link rel="stylesheet" type="text/css" href="/css/other.css">
 @endsection
 
 @section('content')
@@ -83,15 +63,5 @@
 
 @section('scripts')
     @include('partials.flash')
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $(".category-list").click(function(){
-                $("#pinside").text($(this).text());
-                $("#show-category").modal('show');
-            });
-            $(".btn-add").click(function(){
-                $("#add-category").modal('show');
-            });
-        });
-    </script>
+    <script src = "/js/soma.js"></script>
 @endsection

@@ -2,6 +2,11 @@
 
 @section('title', 'Register')
 
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="/css/soma.css">
+    <link rel="stylesheet" type="text/css" href="/css/other.css">
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-sm-offset-3 col-sm-6">
@@ -42,12 +47,4 @@
             </ul>
         </div>
     </div>
-@endsection
-
-@section('styles')
-    <style type="text/css">
-        button {
-            margin-top: 20px;
-        }
-    </style>
 @endsection

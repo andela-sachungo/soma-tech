@@ -17,10 +17,10 @@ class ProfileController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing user profile.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function edit($id)
     {
@@ -30,11 +30,11 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update user details in database.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  Soma\Http\Requests\ProfileRequest  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Routing\Redirector
      */
     public function update(ProfileRequest $request, $id)
     {
@@ -54,7 +54,7 @@ class ProfileController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function changeAvatar(Request $request, $id)
     {
