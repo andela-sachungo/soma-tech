@@ -1,0 +1,58 @@
+.color-icon {
+    color: #aa863a;
+}
+
+#mycarousel .carousel-inner .item {
+    background: url('../image/about2.jpeg') no-repeat left center;
+    background-size: cover;
+    height: 300px;
+}
+
+#mycarousel .carousel-inner .item .container .carousel-caption h1 {
+    color:#aa863a;
+}
+
+.row .form-group button {
+    margin-top: 20px;
+}
+
+.row .panel table tbody tr td .btn-shape {
+    border-radius: 30px;
+    margin-right: 5px;
+    float: right;
+    margin-top: 5px;
+}
+
+.row .panel table tbody {
+    display:block;
+    max-height: 300px;
+    overflow: auto;
+}
+
+.row .panel table tbody tr {
+    display: table;
+    width: 100%;
+}
+
+.row .edit-box .text-center img {
+    border: 1px solid #eee;
+}
+
+.row .edit-box {
+    border-style: ridge;
+    padding: 8px;
+}
+
+.row .col-sm-10 .text-center img {
+    border: 1px solid #eee;
+}
+
+.row .col-sm-10 .text-center .photo-size {
+    width: 200px;
+    height: 200px;
+}
+
+.row .col-sm-10 #profile {
+    font-style:oblique;
+    font-size: 1.5em;
+}

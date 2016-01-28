@@ -4,6 +4,8 @@ namespace Soma\Http\Controllers;
 
 use Soma\Videos;
 use Soma\Categories;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Soma\Http\Requests\VideoRequest;
 
 class VideoController extends Controller
@@ -21,15 +23,16 @@ class VideoController extends Controller
                 'index',
                 'show',
                 'getVideosByCategory',
+                'viewCount',
                 ],
             ]);
         $this->getCategories = Categories::all();
     }
 
     /**
-     * Display a listing of the resource.
+     * Paginate all the videos in the database.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function index()
     {
@@ -40,9 +43,9 @@ class VideoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for uploading a new video.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function create()
     {
@@ -52,48 +55,50 @@ class VideoController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Save the video in the database.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Soma\Http\Requests\VideoRequest  $request
+     * @return \Illuminate\Routing\Redirector
      */
     public function store(VideoRequest $request)
     {
-        $category = Categories::find($request->category_id);
+        $category = Categories::find($request->category);
 
         $link = $this->youtubeEmbedLink($request->youtube_link);
+        $videoId = $this->getYoutubeId($request->youtube_link);
 
         $category->videos()->create([
             'user_id' => auth()->user()->id,
             'youtube_link' => $link,
+            'youtube_id' => $videoId,
             'title' => $request->title,
             'description' => $request->description,
             ]);
 
-        flash()->success('Success!', 'You have uploaded a video');
+        flash()->success('Success!', 'Video uploaded');
 
-        return redirect()->route('own.videos');
+        return redirect()->back();
     }
 
     /**
-     * Display the specified resource.
+     * Get a single video details.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function show($id)
     {
-        $video = Videos::find($id);
-        $category = Categories::find($video->category_id);
+        $video = Videos::with('category', 'userDirect')->where('id', $id)->first();
+        $categories = $this->getCategories;
 
-        return view('videos.show', compact('video', 'category'));
+        return view('videos.show', compact('video', 'categories'));
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Get the for for editing a video.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function edit($id)
     {
@@ -104,18 +109,23 @@ class VideoController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the svideo details in the database.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  Soma\Http\Requests\VideoRequest $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Routing\Redirector
      */
     public function update(VideoRequest $request, $id)
     {
         $video = Videos::find($id);
+
+        $link = $this->youtubeEmbedLink($request->youtube_link);
+        $videoId = $this->getYoutubeId($request->youtube_link);
+
         $video->update([
-            'category_id' => $request->category_id,
-            'youtube_link' => $request->youtube_link,
+            'category_id' => $request->category,
+            'youtube_link' => $link,
+            'youtube_id' => $videoId,
             'title' => $request->title,
             'description' => $request->description,
             ]);
@@ -126,10 +136,10 @@ class VideoController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete the video from database.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Routing\Redirector
      */
     public function destroy($id)
     {
@@ -147,9 +157,9 @@ class VideoController extends Controller
     }
 
     /**
-     * Get the videos of a particular user.
+     * Get all the videos of a particular user.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function getVideos()
     {
@@ -162,7 +172,7 @@ class VideoController extends Controller
     /**
      * Get all the videos of a particular category.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function getVideosByCategory($id)
     {
@@ -173,10 +183,28 @@ class VideoController extends Controller
     }
 
     /**
+     * Save the number of times a video is viewed.
+     *
+     * @param  \Illuminate\Http\Request
+     * @return \Illuminate\Http\Response
+     */
+    public function viewCount(Request $request)
+    {
+        if (isset($request->id)) {
+            $video = Videos::find($request->id);
+
+            $video->play = is_null($video->play) ? 1 : $video->play + 1;
+            $video->save();
+
+            return new Response($video->play, 200);
+        }
+    }
+
+    /**
      * Write the URL to allow the video to be embedded on page.
      *
      * @param  string  $youtubeLink
-     * @return \Illuminate\Http\Response
+     * @return string
      */
     private function youtubeEmbedLink($youtubeLink)
     {
@@ -185,5 +213,19 @@ class VideoController extends Controller
         $url = preg_replace($search, $replace, $youtubeLink);
 
         return $url;
+    }
+
+    /**
+     * Get the youtube id from the submitted url.
+     *
+     * @param  string  $youtubeLink
+     * @return string
+     */
+    private function getYoutubeId($youtubeLink)
+    {
+        $pattern = "/^(?:https?:\/\/)?(?:www\.youtube\.com\/)(?:embed\/|watch\?v=)([\w-]{9,12})(?:.*)$/";
+        preg_match($pattern, $youtubeLink, $matches);
+
+        return $matches[1];
     }
 }

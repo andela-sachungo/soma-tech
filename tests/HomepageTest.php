@@ -17,6 +17,8 @@ class HomepageTest extends TestCase
      */
     public function testCategoriesTitleCanBeSeen()
     {
+        factory(Soma\Categories::class)->create();
+
         $this->visit('/')
              ->see('Categories');
     }
