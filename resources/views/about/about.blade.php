@@ -14,8 +14,8 @@
                 <div class="item active">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>Soma-tech</h1>
-                            <p class="lead">Soma-tech is a learning management system that enables you to learn various technologies.</p>
+                            <h1>SomaTech</h1>
+                            <p class="lead">SomaTech is a learning management system that enables you to learn various technologies.</p>
                         </div>
                     </div>
                 </div>

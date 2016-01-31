@@ -65,7 +65,7 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
-        flash()->success('Welcome to soma-tech!', 'Thank you for being a member.');
+        flash()->success('Welcome to SomaTech!', 'Thank you for being a member.');
 
         return $user;
     }

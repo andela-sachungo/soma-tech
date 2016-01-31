@@ -27,7 +27,7 @@
     <footer>
         <div class="container">
             <div class="text-center" class="color-text" id="footer-text">
-                Copyright &copy; 2016 soma-tech.app
+                Copyright &copy; 2016 SomaTech
                 <br>
                 By Stacey Achungo - #TIA
             </div>
