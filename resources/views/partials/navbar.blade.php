@@ -12,7 +12,7 @@
 
             <!--Sites Logo-->
             <a class="navbar-brand" href="/">
-                soma-tech
+                SomaTech
             </a>
        </div>
 

@@ -61,7 +61,7 @@ body {
 footer{
     height:70px;
     margin-top:-70px;
-    background: #1b5e20;
+    background: #9e9e9e;
     width: 100%;
 }
 
@@ -99,10 +99,13 @@ footer{
 /* title */
 .navbar-default .navbar-brand {
     color: white;
+    background: #f9a825;
+    font-weight: bold;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: #d1ffed;
+    color: black;
+    background: #c5e1a5;
 }
 /* link */
 .navbar-default .navbar-nav > li > a {
@@ -138,6 +141,6 @@ footer{
 
 footer .container #footer-text {
     margin-top: 15px;
-    color: white;
+    color: black;
     opacity: 0.8;
 }
