@@ -1,9 +1,9 @@
 # soma-tech
-[![CircleCI Badge](https://circleci.com/gh/andela-sachungo/soma-tech.svg?style=shield&circle-token=eab6015ece8c084d689495dcbbf2bd5bd22c50cb)](https://circleci.com/gh/andela-sachungo/soma-tech/81)
+[![CircleCI Badge](https://circleci.com/gh/andela-sachungo/soma-tech.svg?style=shield&circle-token=eab6015ece8c084d689495dcbbf2bd5bd22c50cb)](https://circleci.com/gh/andela-sachungo/soma-tech/83)
 [![Coverage Status](https://coveralls.io/repos/andela-sachungo/soma-tech/badge.svg?branch=master&service=github)](https://coveralls.io/github/andela-sachungo/soma-tech?branch=master)
 [![StyleCI Badge](https://styleci.io/repos/48097337/shield)](https://styleci.io/repos/48097337)
 
-Soma-tech is a learning management system that helps people learn various technologies. You can upload YouTube videos by category, edit and delete them. You have to log in first before uploading or changing a video from your dashboard. To view the project and play with it, [visit this page](http://soma-tech.herokuapp.com/).
+SomaTech is a learning management system that helps people learn various technologies. You can upload YouTube videos by category, edit and delete them. You have to log in first before uploading or changing a video from your dashboard. To view the project and play with it, [visit this page](http://soma-tech.herokuapp.com/).
 
 ##Installation instructions
 * Clone the repository `git clone <repository>`
