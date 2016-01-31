@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Soma\Http\Controllers\Auth;
 
-use App\User;
+use Soma\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use Soma\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -22,6 +22,8 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+
+    protected $redirectPath = '/dashboard';
 
     /**
      * Create a new authentication controller instance.
@@ -43,8 +45,9 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'email' => 'required|email|max:255|max:255',
+            'password' => 'required|min:6',
+            'confirm-password' => 'required|same:password',
         ]);
     }
 
@@ -56,10 +59,14 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        flash()->success('Welcome to SomaTech!', 'Thank you for being a member.');
+
+        return $user;
     }
 }

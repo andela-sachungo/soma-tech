@@ -16,12 +16,22 @@
     <filter>
         <whitelist>
             <directory suffix=".php">app/</directory>
+            <exclude>
+                <directory>app/Http/Controllers/Auth/</directory>
+                <directory>app/Console/</directory>
+                <directory>app/Exceptions/</directory>
+                <directory>app/Http/Middleware/</directory>
+            </exclude>
         </whitelist>
     </filter>
+    <logging>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+    </logging>
     <php>
         <env name="APP_ENV" value="testing"/>
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_DRIVER" value="sync"/>
+        <env name="DB_DATABASE" value="testing"/>
     </php>
 </phpunit>

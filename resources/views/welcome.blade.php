@@ -1,45 +1,56 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layouts.master')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('title', 'Welcome')
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="/css/video.css">
+@endsection
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+@section('content')
+    <div class="row">
+        @if($categories->count() > 0)
+            @if($videos->count() > 0)
+                <div class="col-sm-3">
+                    @include('partials.category_list')
+                </div> <!-- .col-sm-3 -->
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
+                <div class="col-sm-9">
+                    @foreach ($videos as $video)
+                        @include('partials.video_display')
+                    @endforeach
+                    {!! $videos->render() !!}
+                </div> <!-- .col-sm-9 -->
+            @else
+                <div class="col-sm-3">
+                    @include('partials.category_list')
+                </div> <!-- .col-sm-3 -->
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h1>
+                                <span class="fa-stack fa-lg" id="welcome-no-video">
+                                  <i class="fa fa-video-camera fa-stack-1x"></i>
+                                  <i class="fa fa-ban fa-stack-2x text-danger"></i>
+                                </span>
+                                No videos
+                            </h1>
+                        </div> <!-- .col-sm-3 -->
+                    </div><!-- .row -->
+                </div> <!-- .col-sm-9 -->
+            @endif
+        @else
+            <div class="col-sm-3" id="no-video">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-video-camera fa-stack-1x"></i>
+                  <i class="fa fa-ban fa-stack-2x text-danger"></i>
+                </span>
             </div>
-        </div>
-    </body>
-</html>
+            <div class="col-sm-offset-4">
+                <h1>Sorry, currently there are no YouTube videos uploaded!</h1>
+                <p>Upload a video to start the learning movement.</p>
+                <p><em>Thank you</em></p>
+            </div>
+        @endif
+    </div> <!-- .row -->
+@endsection

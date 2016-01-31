@@ -1,0 +1,117 @@
+.btn-shape {
+    border-radius: 30px;
+}
+
+.btn-space {
+    border-radius: 30px;
+    margin-right: 40px;
+}
+
+.vid-thumbnail h6{
+    opacity: 0.7;
+}
+
+#desc, .vid-thumbnail h6 {
+  color: white;
+}
+
+.vid-thumbnail h4 {
+    color: #aa863a;
+}
+
+#desc {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#align {
+    min-height:135px;
+    overflow-y: auto;
+    overflow-x:hidden;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.caption{
+    background-color:rgba(0,0,0,0.7);
+}
+.list-scrollable {
+    max-height: 400px;
+    overflow: auto;
+}
+
+.box-shadow{
+    border-style:hidden;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, .14),0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+.embed-responsive-16by9 {
+  padding-bottom: 51.75%;
+}
+
+#description {
+    color: white;
+    opacity: 0.9;
+    word-wrap: break-word;
+}
+
+#back-button {
+    bottom: 0;
+}
+
+#video-title {
+    color: #aa863a;
+}
+
+.vid-thumbnail {
+    position: relative;
+}
+
+.vid-thumbnail label h5, .vid-thumbnail #details {
+    opacity: 0.7;
+    color: white;
+}
+
+#no-video {
+    font-size: 7.5em;
+}
+
+#single-no-video {
+    font-size: 3.5em;
+}
+
+#welcome-no-video {
+    font-size: 2.5em;
+}
+
+.row .container .vid-thumbnail span {
+    padding:5px;
+    color: #aa863a;
+}
+
+
+.thumbnail .more {
+    background-color: #bdbdbd;
+}
+
+.thumbnail .more .row .col-sm-4 h5 {
+    margin-left: 8px;
+}
+
+
+.thumbnail .more .myBtn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.thumbnail .more .myBtn .right {
+    margin-right: 15px;
+    float: right;
+}
+
+.sticky-footer .container {
+    margin-top: 70px;
+}
